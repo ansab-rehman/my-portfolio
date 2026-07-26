@@ -27,7 +27,6 @@ export const selectedWork: WorkCase[] = [
     id: "memogent",
     title: "MemogentAI",
     context: "AI-powered financial document analysis for due diligence",
-    status: "In progress",
     outcomes: [
       "Built an OCR and RAG-based pipeline that extracts precision data from Excel, PowerPoint, and scanned documents.",
       "Integrated fine-tuned agents and validation workflows to generate structured financial due diligence reports.",

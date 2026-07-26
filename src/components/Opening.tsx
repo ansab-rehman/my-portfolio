@@ -1,9 +1,11 @@
 import { useEffect, useRef } from "react";
 import { profile } from "../content";
 import portrait from "../assets/portrait.png";
+import { useTheme } from "../hooks/useTheme";
 
 export function Opening() {
   const stageRef = useRef<HTMLElement | null>(null);
+  const { theme, toggle, isDay } = useTheme();
 
   useEffect(() => {
     const el = stageRef.current;
@@ -31,20 +33,38 @@ export function Opening() {
     <header className="opening" id="top" ref={stageRef}>
       <div className="opening__atmosphere" aria-hidden="true" />
       <div className="opening__spot" aria-hidden="true" />
-      <nav className="opening__nav" aria-label="Primary">
-        <a className="opening__nav-link" href="#work">
-          Work
-        </a>
-        <a className="opening__nav-link" href="#tenure">
-          Tenure
-        </a>
-        <a className="opening__nav-link" href="#craft">
-          Craft
-        </a>
-        <a className="opening__nav-link" href="#contact">
-          Contact
-        </a>
-      </nav>
+      <div className="opening__topbar">
+        <nav className="opening__nav" aria-label="Primary">
+          <a className="opening__nav-link" href="#work">
+            Work
+          </a>
+          <a className="opening__nav-link" href="#tenure">
+            Tenure
+          </a>
+          <a className="opening__nav-link" href="#craft">
+            Craft
+          </a>
+          <a className="opening__nav-link" href="#contact">
+            Contact
+          </a>
+        </nav>
+
+        <button
+          type="button"
+          className="theme-toggle"
+          onClick={toggle}
+          aria-label={isDay ? "Switch to night mode" : "Switch to day mode"}
+          aria-pressed={isDay}
+          title={isDay ? "Night mode" : "Day mode"}
+        >
+          <span className="theme-toggle__track" aria-hidden="true">
+            <span className={`theme-toggle__thumb theme-toggle__thumb--${theme}`}>
+              <span className="theme-toggle__icon" />
+            </span>
+          </span>
+          <span className="theme-toggle__label">{isDay ? "Day" : "Night"}</span>
+        </button>
+      </div>
 
       <div className="opening__stage">
         <div className="opening__copy">
