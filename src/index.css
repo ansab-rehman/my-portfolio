@@ -951,8 +951,8 @@ ol {
 }
 
 .changelog__item:hover .changelog__logo {
-  transform: translateY(-2px) rotate(-2deg);
-  box-shadow: 0 8px 18px var(--shadow-soft);
+  transform: translateY(-3px) rotate(-2deg) scale(1.4);
+  box-shadow: 0 10px 22px var(--shadow-soft);
 }
 
 .changelog__item:hover .changelog__company {
