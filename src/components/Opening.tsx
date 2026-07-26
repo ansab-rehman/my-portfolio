@@ -44,6 +44,9 @@ export function Opening() {
           <a className="opening__nav-link" href="#craft">
             Craft
           </a>
+          <a className="opening__nav-link" href="#ask">
+            Ask
+          </a>
           <a className="opening__nav-link" href="#contact">
             Contact
           </a>

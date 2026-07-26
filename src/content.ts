@@ -13,6 +13,18 @@ export const profile = {
   },
 } as const;
 
+export type ArchitectureNode = {
+  id: string;
+  label: string;
+  detail: string;
+};
+
+export type CaseArchitecture = {
+  summary: string;
+  flow: string;
+  nodes: ArchitectureNode[];
+};
+
 export type WorkCase = {
   id: string;
   title: string;
@@ -20,19 +32,63 @@ export type WorkCase = {
   status?: string;
   outcomes: string[];
   tech: string;
+  architecture?: CaseArchitecture;
 };
 
 export const selectedWork: WorkCase[] = [
   {
     id: "memogent",
     title: "MemogentAI",
-    context: "AI-powered financial document analysis for due diligence",
+    context: "AI-powered financial due diligence from Excel databooks",
     outcomes: [
-      "Built an OCR and RAG-based pipeline that extracts precision data from Excel, PowerPoint, and scanned documents.",
-      "Integrated fine-tuned agents and validation workflows to generate structured financial due diligence reports.",
-      "Designed retrieval and LangGraph-style orchestration for multi-step analysis with human review gates.",
+      "Built an Excel-first ingest and RAG pipeline that audits spreadsheets, extracts tables, and indexes evidence for grounded generation.",
+      "Orchestrated multi-section FDD report generation with LangGraph — plan, draft, persona review, and quality gates before assembly.",
+      "Designed human-in-the-loop approve / edit / reject interrupts so analysts stay in control of every critical step.",
     ],
-    tech: "Python · FastAPI · RAG · LangChain / LangGraph · OCR · React",
+    tech: "Python · FastAPI · LangGraph · LanceDB · RAG · React · Tauri",
+    architecture: {
+      summary:
+        "Local-first desktop app plus FastAPI engine: upload a databook, retrieve evidence, generate sections with gated review, then export the report.",
+      flow: "Workspace → API → Ingest & RAG → Document orchestrator → Section engine ↔ Human-in-the-loop → Assemble & export",
+      nodes: [
+        {
+          id: "desktop",
+          label: "Desktop Workspace",
+          detail:
+            "Tauri + React run UI: upload databooks, watch SSE progress on a pipeline rail, review drafts and evidence, then export Markdown / PPTX / PDF.",
+        },
+        {
+          id: "api",
+          label: "API Gateway",
+          detail:
+            "FastAPI sessions and documents over REST, plus SSE streams. Pure transport — the graph owns generation; the API validates, streams, and resumes HITL.",
+        },
+        {
+          id: "ingest",
+          label: "Ingest & RAG",
+          detail:
+            "Audit Excel for reference errors, extract tables into a structured catalog, then embed chunks into a local LanceDB hybrid store (dense + BM25).",
+        },
+        {
+          id: "orchestrator",
+          label: "Document Orchestrator",
+          detail:
+            "Outer LangGraph: global plan, sequential section loop, cross-section review, and final document assembly — durable state keyed by thread.",
+        },
+        {
+          id: "section",
+          label: "Section Engine",
+          detail:
+            "Inner chain per section: retrieve → compress evidence → outline → draft → multi-persona critique → polish → claims → quality gate.",
+        },
+        {
+          id: "hitl",
+          label: "Human-in-the-Loop",
+          detail:
+            "Gated plan and review interrupts at global, section, and step tiers. One resume contract: approve, edit, or reject — then the stream continues.",
+        },
+      ],
+    },
   },
   {
     id: "cheetay-admin",

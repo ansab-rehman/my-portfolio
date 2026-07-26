@@ -2,6 +2,7 @@ import { Opening } from "./components/Opening";
 import { SelectedWork } from "./components/SelectedWork";
 import { Tenure } from "./components/Tenure";
 import { Craft } from "./components/Craft";
+import { AskPortfolio } from "./components/AskPortfolio";
 import { Close } from "./components/Close";
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
         <SelectedWork />
         <Tenure />
         <Craft />
+        <AskPortfolio />
       </main>
       <Close />
     </div>
