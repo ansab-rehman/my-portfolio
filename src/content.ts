@@ -2,14 +2,14 @@ export const profile = {
   name: "Ansab Rehman",
   role: "Full Stack Engineer · AI-powered products",
   summary:
-    "Full Stack Engineer with 5+ years building scalable web applications and AI-enabled systems. Python/Django, React, Angular, distributed task processing, search infrastructure, and production-grade integrations — with proven impact in reliability, test coverage, and performance.",
+    "Full Stack Engineer with 5+ years building scalable web applications and AI-enabled systems. Python/Django, React, Angular, distributed task processing, search infrastructure, and production-grade integrations, with proven impact in reliability, test coverage, and performance.",
   email: "ansabrehman@hotmail.com",
   linkedin: "https://linkedin.com/in/ansabrehman/",
   location: "Lahore, Pakistan",
   education: {
     degree: "Bachelor of Computer Science",
     school: "FAST NUCES, Lahore",
-    years: "2018 — 2022",
+    years: "2018 to 2022",
   },
 } as const;
 
@@ -42,7 +42,7 @@ export const selectedWork: WorkCase[] = [
     context: "AI-powered financial due diligence from Excel databooks",
     outcomes: [
       "Built an Excel-first ingest and RAG pipeline that audits spreadsheets, extracts tables, and indexes evidence for grounded generation.",
-      "Orchestrated multi-section FDD report generation with LangGraph — plan, draft, persona review, and quality gates before assembly.",
+      "Orchestrated multi-section FDD report generation with LangGraph: plan, draft, persona review, and quality gates before assembly.",
       "Designed human-in-the-loop approve / edit / reject interrupts so analysts stay in control of every critical step.",
     ],
     tech: "Python · FastAPI · LangGraph · LanceDB · RAG · React · Tauri",
@@ -61,7 +61,7 @@ export const selectedWork: WorkCase[] = [
           id: "api",
           label: "API Gateway",
           detail:
-            "FastAPI sessions and documents over REST, plus SSE streams. Pure transport — the graph owns generation; the API validates, streams, and resumes HITL.",
+            "FastAPI sessions and documents over REST, plus SSE streams. Pure transport: the graph owns generation; the API validates, streams, and resumes HITL.",
         },
         {
           id: "ingest",
@@ -73,7 +73,7 @@ export const selectedWork: WorkCase[] = [
           id: "orchestrator",
           label: "Document Orchestrator",
           detail:
-            "Outer LangGraph: global plan, sequential section loop, cross-section review, and final document assembly — durable state keyed by thread.",
+            "Outer LangGraph: global plan, sequential section loop, cross-section review, and final document assembly with durable state keyed by thread.",
         },
         {
           id: "section",
@@ -85,7 +85,7 @@ export const selectedWork: WorkCase[] = [
           id: "hitl",
           label: "Human-in-the-Loop",
           detail:
-            "Gated plan and review interrupts at global, section, and step tiers. One resume contract: approve, edit, or reject — then the stream continues.",
+            "Gated plan and review interrupts at global, section, and step tiers. One resume contract: approve, edit, or reject, then the stream continues.",
         },
       ],
     },
@@ -123,7 +123,7 @@ export type TenureEntry = {
 export const tenure: TenureEntry[] = [
   {
     id: "xref-tenure",
-    range: "Dec 2023 — Present",
+    range: "Dec 2023 to Present",
     company: "Xref",
     title: "Full Stack Engineer",
     lines: [
@@ -135,7 +135,7 @@ export const tenure: TenureEntry[] = [
   },
   {
     id: "cheetay-tenure",
-    range: "Mar 2021 — Dec 2023",
+    range: "Mar 2021 to Dec 2023",
     company: "Cheetay Logistics",
     title: "Software Engineer",
     lines: [
@@ -149,7 +149,7 @@ export const tenure: TenureEntry[] = [
 
 export const craft = {
   intro:
-    "I work across the stack when the product needs it — APIs that stay maintainable, frontends that stay clear, and AI pipelines that earn trust in production.",
+    "I work across the stack when the product needs it: APIs that stay maintainable, frontends that stay clear, and AI pipelines that earn trust in production.",
   groups: [
     {
       label: "Languages",

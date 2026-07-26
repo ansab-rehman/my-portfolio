@@ -16,7 +16,26 @@ npm run build    # production build → dist/
 npm run preview  # serve dist locally
 ```
 
-## Free deploy — Cloudflare Pages
+## Ask the portfolio (LLM)
+
+The Ask section retrieves from `src/data/portfolio-knowledge.json`, then calls
+`POST /api/ask` (Vercel Edge) to draft a short answer.
+
+1. Create a free key at [Groq Console](https://console.groq.com/keys) (preferred)
+   or [Google AI Studio](https://aistudio.google.com/apikey).
+2. In Vercel → Project → **Settings** → **Environment Variables**, add:
+   - `GROQ_API_KEY` (preferred), and/or
+   - `GEMINI_API_KEY` (fallback)
+3. Redeploy. Without a key, the UI still answers via local retrieval.
+
+Copy `.env.example` to `.env.local` only if you run `vercel dev` locally.
+
+## Free deploy (Vercel)
+
+Connect the GitHub repo in Vercel. Framework: Vite. Output: `dist`.
+Set the env vars above for LLM answers.
+
+## Free deploy (Cloudflare Pages / Workers)
 
 1. Create a GitHub repository and push this project.
 2. In [Cloudflare Dashboard](https://dash.cloudflare.com/) → **Workers & Pages** → **Create** → **Pages** → connect the repo.
@@ -25,7 +44,9 @@ npm run preview  # serve dist locally
    - **Build command:** `npm run build`
    - **Build output directory:** `dist`
    - **Node version:** 20 (or newer LTS)
-4. Deploy. You get a free `*.pages.dev` URL with HTTPS.
+4. Deploy. You get a free `*.pages.dev` or `*.workers.dev` URL with HTTPS.
+
+Note: `/api/ask` is a **Vercel** function. On Cloudflare alone, Ask falls back to local retrieval unless you add a Worker later.
 
 Every push to the production branch rebuilds automatically.
 

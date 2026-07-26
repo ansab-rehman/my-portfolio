@@ -1,4 +1,4 @@
-/* Soft dark studio — product spec, with playful color + hover */
+/* Soft dark studio: product spec, with playful color + hover */
 
 :root,
 [data-theme="night"] {
@@ -1055,6 +1055,32 @@ ol {
 
 .ask__submit {
   flex-shrink: 0;
+}
+
+.ask__submit:disabled,
+.ask__chip:disabled,
+.ask__input:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.ask__pending {
+  margin-top: var(--space-md);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.ask__mode {
+  margin-top: var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.ask__result--pending {
+  opacity: 0.72;
 }
 
 .ask__suggestions {

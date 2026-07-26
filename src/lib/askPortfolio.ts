@@ -24,6 +24,14 @@ export type AskResult = {
   answer: string;
   matches: AskMatch[];
   empty: boolean;
+  /** How the answer was produced. */
+  mode?: "local" | "llm";
+};
+
+export type RetrieveResult = {
+  matches: AskMatch[];
+  empty: boolean;
+  emptyAnswer: string;
 };
 
 const chunks = knowledge as KnowledgeChunk[];
@@ -186,20 +194,20 @@ function composeAnswer(matches: AskMatch[]): string {
 
   const bridge =
     second.source === top.source
-      ? ` Related: ${second.title} — ${second.text.slice(0, 120).trim()}${second.text.length > 120 ? "…" : ""}`
+      ? ` Related: ${second.title}. ${second.text.slice(0, 120).trim()}${second.text.length > 120 ? "…" : ""}`
       : ` Also see ${SOURCE_LABEL[second.source].toLowerCase()}: ${second.title}.`;
 
   return `${lead}${bridge}`;
 }
 
-export function askPortfolio(query: string): AskResult {
+export function retrievePortfolio(query: string): RetrieveResult {
   const tokens = normalizeQuery(query);
   if (tokens.length === 0) {
     return {
       empty: true,
-      answer:
-        "Ask something specific — try Elasticsearch, MemogentAI architecture, test coverage, or RAG.",
       matches: [],
+      emptyAnswer:
+        "Ask something specific. Try Elasticsearch, MemogentAI architecture, test coverage, or RAG.",
     };
   }
 
@@ -213,16 +221,49 @@ export function askPortfolio(query: string): AskResult {
   if (scored.length === 0) {
     return {
       empty: true,
-      answer:
-        "I don’t have that in this portfolio index — try Elasticsearch, MemogentAI, Django, or RAG.",
       matches: [],
+      emptyAnswer:
+        "I don’t have that in this portfolio index. Try Elasticsearch, MemogentAI, Django, or RAG.",
+    };
+  }
+
+  return { empty: false, matches: scored, emptyAnswer: "" };
+}
+
+export function askPortfolio(query: string): AskResult {
+  const retrieved = retrievePortfolio(query);
+  if (retrieved.empty) {
+    return {
+      empty: true,
+      answer: retrieved.emptyAnswer,
+      matches: [],
+      mode: "local",
     };
   }
 
   return {
     empty: false,
-    answer: composeAnswer(scored),
-    matches: scored,
+    answer: composeAnswer(retrieved.matches),
+    matches: retrieved.matches,
+    mode: "local",
+  };
+}
+
+export function buildLlmPrompt(query: string, matches: AskMatch[]): {
+  system: string;
+  user: string;
+} {
+  const passages = matches
+    .map(
+      (m, i) =>
+        `[${i + 1}] (${m.chunk.source}) ${m.chunk.title}\n${m.chunk.text}`,
+    )
+    .join("\n\n");
+
+  return {
+    system:
+      "You answer questions about Ansab Rehman for his portfolio site. Use only the provided passages. Write 2 to 4 short sentences in first person as Ansab. No em dashes. No bullet lists. If the passages are not enough, say you do not cover that in this portfolio and suggest Elasticsearch, MemogentAI, Django, or RAG.",
+    user: `Question: ${query}\n\nPassages:\n${passages}`,
   };
 }
 

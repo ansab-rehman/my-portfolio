@@ -1,11 +1,6 @@
 import { useId, useState, type FormEvent } from "react";
-import {
-  ASK_SUGGESTIONS,
-  askPortfolio,
-  sourceHref,
-  sourceLabel,
-  type AskResult,
-} from "../lib/askPortfolio";
+import { ASK_SUGGESTIONS, type AskResult } from "../lib/askPortfolio";
+import { askPortfolioSmart, sourceHref, sourceLabel } from "../lib/askClient";
 import { useReveal } from "../hooks/useReveal";
 
 export function AskPortfolio() {
@@ -14,18 +9,25 @@ export function AskPortfolio() {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState<AskResult | null>(null);
   const [passagesOpen, setPassagesOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const runAsk = (raw: string) => {
+  const runAsk = async (raw: string) => {
     const trimmed = raw.trim();
-    if (!trimmed) return;
+    if (!trimmed || loading) return;
     setQuery(trimmed);
-    setResult(askPortfolio(trimmed));
     setPassagesOpen(false);
+    setLoading(true);
+    try {
+      const next = await askPortfolioSmart(trimmed);
+      setResult(next);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    runAsk(query);
+    void runAsk(query);
   };
 
   const sources = result
@@ -45,9 +47,9 @@ export function AskPortfolio() {
           Query my work
         </h2>
         <p className="section__lede">
-          Client-side retrieval over a local resume index — no backend, no API
-          keys. Token overlap + tag boost, then a short answer from the top
-          passages.
+          Retrieves from a local resume index, then drafts a short answer with a
+          free LLM when available. Falls back to passage matching offline or
+          without an API key.
         </p>
       </div>
 
@@ -64,10 +66,15 @@ export function AskPortfolio() {
             autoComplete="off"
             placeholder="What have you built with Elasticsearch?"
             value={query}
+            disabled={loading}
             onChange={(e) => setQuery(e.target.value)}
           />
-          <button type="submit" className="btn btn--primary ask__submit">
-            Ask
+          <button
+            type="submit"
+            className="btn btn--primary ask__submit"
+            disabled={loading}
+          >
+            {loading ? "Asking…" : "Ask"}
           </button>
         </div>
       </form>
@@ -78,7 +85,8 @@ export function AskPortfolio() {
             <button
               type="button"
               className="ask__chip"
-              onClick={() => runAsk(suggestion)}
+              disabled={loading}
+              onClick={() => void runAsk(suggestion)}
             >
               {suggestion}
             </button>
@@ -86,12 +94,27 @@ export function AskPortfolio() {
         ))}
       </ul>
 
+      {loading && !result ? (
+        <p className="ask__pending" role="status">
+          Retrieving passages and drafting an answer…
+        </p>
+      ) : null}
+
       {result ? (
         <div
-          className={`ask__result ${result.empty ? "ask__result--empty" : ""}`}
+          className={`ask__result ${result.empty ? "ask__result--empty" : ""} ${loading ? "ask__result--pending" : ""}`}
           role="status"
+          aria-busy={loading}
         >
           <p className="ask__answer">{result.answer}</p>
+
+          {!result.empty && result.mode ? (
+            <p className="ask__mode">
+              {result.mode === "llm"
+                ? "Answer drafted with LLM over retrieved passages"
+                : "Local retrieval answer (LLM unavailable)"}
+            </p>
+          ) : null}
 
           {sources.length > 0 ? (
             <p className="ask__sources">

@@ -136,7 +136,7 @@ export function SelectedWork() {
           Proof over pitch
         </h2>
         <p className="section__lede">
-          Products and systems I built — separate from where I worked. Tenure
+          Products and systems I built, separate from where I worked. Tenure
           covers the employers; this is the work itself.
         </p>
       </div>

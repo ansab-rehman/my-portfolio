@@ -2,162 +2,333 @@
   {
     "id": "profile-summary",
     "title": "Profile",
-    "text": "Full Stack Engineer with 5+ years building scalable web applications and AI-enabled systems. Python/Django, React, Angular, distributed task processing, search infrastructure, and production-grade integrations — with proven impact in reliability, test coverage, and performance.",
-    "tags": ["profile", "fullstack", "python", "django", "react", "angular", "ai", "search"],
+    "text": "Full Stack Engineer with 5+ years building scalable web applications and AI-enabled systems. Python/Django, React, Angular, distributed task processing, search infrastructure, and production-grade integrations, with proven impact in reliability, test coverage, and performance.",
+    "tags": [
+      "profile",
+      "fullstack",
+      "python",
+      "django",
+      "react",
+      "angular",
+      "ai",
+      "search"
+    ],
     "source": "profile"
   },
   {
     "id": "profile-education",
     "title": "Education",
-    "text": "Bachelor of Computer Science from FAST NUCES, Lahore (2018 — 2022). Based in Lahore, Pakistan.",
-    "tags": ["education", "fast", "lahore"],
+    "text": "Bachelor of Computer Science from FAST NUCES, Lahore (2018 to 2022). Based in Lahore, Pakistan.",
+    "tags": [
+      "education",
+      "fast",
+      "lahore"
+    ],
     "source": "profile"
   },
   {
     "id": "work-memogent",
     "title": "MemogentAI",
-    "text": "AI-powered financial due diligence from Excel databooks. Built an Excel-first ingest and RAG pipeline that audits spreadsheets, extracts tables, and indexes evidence. Orchestrated multi-section FDD report generation with LangGraph — plan, draft, persona review, and quality gates. Designed human-in-the-loop approve / edit / reject interrupts.",
-    "tags": ["memogent", "rag", "langgraph", "fastapi", "excel", "fdd", "due diligence", "hitl", "ai"],
+    "text": "AI-powered financial due diligence from Excel databooks. Built an Excel-first ingest and RAG pipeline that audits spreadsheets, extracts tables, and indexes evidence. Orchestrated multi-section FDD report generation with LangGraph: plan, draft, persona review, and quality gates. Designed human-in-the-loop approve / edit / reject interrupts.",
+    "tags": [
+      "memogent",
+      "rag",
+      "langgraph",
+      "fastapi",
+      "excel",
+      "fdd",
+      "due diligence",
+      "hitl",
+      "ai"
+    ],
     "source": "work"
   },
   {
     "id": "arch-desktop",
-    "title": "MemogentAI — Desktop Workspace",
+    "title": "MemogentAI: Desktop Workspace",
     "text": "Tauri + React run UI: upload databooks, watch SSE progress on a pipeline rail, review drafts and evidence, then export Markdown / PPTX / PDF.",
-    "tags": ["memogent", "architecture", "tauri", "react", "sse", "desktop", "ui"],
+    "tags": [
+      "memogent",
+      "architecture",
+      "tauri",
+      "react",
+      "sse",
+      "desktop",
+      "ui"
+    ],
     "source": "architecture"
   },
   {
     "id": "arch-api",
-    "title": "MemogentAI — API Gateway",
-    "text": "FastAPI sessions and documents over REST, plus SSE streams. Pure transport — the graph owns generation; the API validates, streams, and resumes HITL.",
-    "tags": ["memogent", "architecture", "fastapi", "sse", "api"],
+    "title": "MemogentAI: API Gateway",
+    "text": "FastAPI sessions and documents over REST, plus SSE streams. Pure transport: the graph owns generation; the API validates, streams, and resumes HITL.",
+    "tags": [
+      "memogent",
+      "architecture",
+      "fastapi",
+      "sse",
+      "api"
+    ],
     "source": "architecture"
   },
   {
     "id": "arch-ingest",
-    "title": "MemogentAI — Ingest & RAG",
+    "title": "MemogentAI: Ingest & RAG",
     "text": "Audit Excel for reference errors, extract tables into a structured catalog, then embed chunks into a local LanceDB hybrid store with dense retrieval and BM25.",
-    "tags": ["memogent", "architecture", "rag", "lancedb", "excel", "ingest", "retrieval", "bm25"],
+    "tags": [
+      "memogent",
+      "architecture",
+      "rag",
+      "lancedb",
+      "excel",
+      "ingest",
+      "retrieval",
+      "bm25"
+    ],
     "source": "architecture"
   },
   {
     "id": "arch-orchestrator",
-    "title": "MemogentAI — Document Orchestrator",
+    "title": "MemogentAI: Document Orchestrator",
     "text": "Outer LangGraph: global plan, sequential section loop, cross-section review, and final document assembly with durable state keyed by thread.",
-    "tags": ["memogent", "architecture", "langgraph", "orchestration", "pipeline"],
+    "tags": [
+      "memogent",
+      "architecture",
+      "langgraph",
+      "orchestration",
+      "pipeline"
+    ],
     "source": "architecture"
   },
   {
     "id": "arch-section",
-    "title": "MemogentAI — Section Engine",
+    "title": "MemogentAI: Section Engine",
     "text": "Inner chain per section: retrieve, compress evidence, outline, draft, multi-persona critique, polish, claims, and quality gate.",
-    "tags": ["memogent", "architecture", "section", "draft", "persona", "rag"],
+    "tags": [
+      "memogent",
+      "architecture",
+      "section",
+      "draft",
+      "persona",
+      "rag"
+    ],
     "source": "architecture"
   },
   {
     "id": "arch-hitl",
-    "title": "MemogentAI — Human-in-the-Loop",
-    "text": "Gated plan and review interrupts at global, section, and step tiers. One resume contract: approve, edit, or reject — then the stream continues.",
-    "tags": ["memogent", "architecture", "hitl", "human", "review", "approve"],
+    "title": "MemogentAI: Human-in-the-Loop",
+    "text": "Gated plan and review interrupts at global, section, and step tiers. One resume contract: approve, edit, or reject, then the stream continues.",
+    "tags": [
+      "memogent",
+      "architecture",
+      "hitl",
+      "human",
+      "review",
+      "approve"
+    ],
     "source": "architecture"
   },
   {
     "id": "work-cheetay-admin",
     "title": "Cheetay Admin App",
-    "text": "Internal operations platform for Cheetay Logistics. Centralized admin for products, inventory, deals, CMS content, and operational workflows — one surface for marketing and operations instead of fragmented tools. Built with Django, Jinja, and AJAX.",
-    "tags": ["cheetay", "admin", "django", "jinja", "cms", "inventory"],
+    "text": "Internal operations platform for Cheetay Logistics. Centralized admin for products, inventory, deals, CMS content, and operational workflows: one surface for marketing and operations instead of fragmented tools. Built with Django, Jinja, and AJAX.",
+    "tags": [
+      "cheetay",
+      "admin",
+      "django",
+      "jinja",
+      "cms",
+      "inventory"
+    ],
     "source": "work"
   },
   {
     "id": "work-sentiment",
     "title": "Sentiment Analysis System",
     "text": "Social media sentiment classification tool. Retrieved and classified tweets and social posts as positive, negative, or neutral with NLP techniques, surfacing trend insights without manual review. Python, Django, NLP.",
-    "tags": ["sentiment", "nlp", "django", "twitter", "classification"],
+    "tags": [
+      "sentiment",
+      "nlp",
+      "django",
+      "twitter",
+      "classification"
+    ],
     "source": "work"
   },
   {
     "id": "tenure-xref",
-    "title": "Xref — Full Stack Engineer",
-    "text": "At Xref (Dec 2023 — Present): raised automated test coverage from 45% to 80% across Django and Angular; shipped AI-powered summaries in reference-check workflows and a knowledge-base chatbot for internal retrieval; migrated referee-check workflows to the enterprise platform; designed IAM-style role-based access control.",
-    "tags": ["xref", "django", "angular", "testing", "coverage", "ai", "chatbot", "rbac", "iam"],
+    "title": "Xref: Full Stack Engineer",
+    "text": "At Xref (Dec 2023 to Present): raised automated test coverage from 45% to 80% across Django and Angular; shipped AI-powered summaries in reference-check workflows and a knowledge-base chatbot for internal retrieval; migrated referee-check workflows to the enterprise platform; designed IAM-style role-based access control.",
+    "tags": [
+      "xref",
+      "django",
+      "angular",
+      "testing",
+      "coverage",
+      "ai",
+      "chatbot",
+      "rbac",
+      "iam"
+    ],
     "source": "tenure"
   },
   {
     "id": "tenure-xref-coverage",
     "title": "Test coverage at Xref",
     "text": "Raised automated test coverage from 45% to 80% across Django backend and Angular frontend at Xref.",
-    "tags": ["xref", "testing", "coverage", "pytest", "django", "angular"],
+    "tags": [
+      "xref",
+      "testing",
+      "coverage",
+      "pytest",
+      "django",
+      "angular"
+    ],
     "source": "tenure"
   },
   {
     "id": "tenure-xref-ai",
     "title": "AI at Xref",
     "text": "Shipped AI-powered summaries in reference-check workflows and a knowledge-base chatbot for internal retrieval at Xref.",
-    "tags": ["xref", "ai", "chatbot", "rag", "retrieval", "summaries", "knowledge base"],
+    "tags": [
+      "xref",
+      "ai",
+      "chatbot",
+      "rag",
+      "retrieval",
+      "summaries",
+      "knowledge base"
+    ],
     "source": "tenure"
   },
   {
     "id": "tenure-xref-rbac",
     "title": "RBAC at Xref",
     "text": "Designed role-based access control inspired by AWS IAM for enterprise clients at Xref.",
-    "tags": ["xref", "rbac", "iam", "aws", "security", "enterprise"],
+    "tags": [
+      "xref",
+      "rbac",
+      "iam",
+      "aws",
+      "security",
+      "enterprise"
+    ],
     "source": "tenure"
   },
   {
     "id": "tenure-cheetay",
-    "title": "Cheetay Logistics — Software Engineer",
-    "text": "At Cheetay Logistics (Mar 2021 — Dec 2023): delivered Elasticsearch indexing and search APIs, Redis caching, and Celery automation; integrated Bank Alfalah payments; production monitoring with Sentry and Elastic APM; backward-compatible APIs across logistics and ERP; internal Django dashboards.",
-    "tags": ["cheetay", "elasticsearch", "redis", "celery", "django", "sentry", "apm", "payments"],
+    "title": "Cheetay Logistics: Software Engineer",
+    "text": "At Cheetay Logistics (Mar 2021 to Dec 2023): delivered Elasticsearch indexing and search APIs, Redis caching, and Celery automation; integrated Bank Alfalah payments; production monitoring with Sentry and Elastic APM; backward-compatible APIs across logistics and ERP; internal Django dashboards.",
+    "tags": [
+      "cheetay",
+      "elasticsearch",
+      "redis",
+      "celery",
+      "django",
+      "sentry",
+      "apm",
+      "payments"
+    ],
     "source": "tenure"
   },
   {
     "id": "tenure-cheetay-elasticsearch",
     "title": "Elasticsearch at Cheetay",
     "text": "Delivered Elasticsearch indexing and search APIs at Cheetay Logistics, alongside Redis caching and Celery automation that cut latency in critical paths. Also used Elastic APM for production monitoring.",
-    "tags": ["elasticsearch", "search", "indexing", "cheetay", "elastic", "apm", "redis", "celery"],
+    "tags": [
+      "elasticsearch",
+      "search",
+      "indexing",
+      "cheetay",
+      "elastic",
+      "apm",
+      "redis",
+      "celery"
+    ],
     "source": "tenure"
   },
   {
     "id": "tenure-cheetay-payments",
     "title": "Payments & observability at Cheetay",
     "text": "Integrated Bank Alfalah payment gateway and production monitoring with Sentry and Elastic APM at Cheetay Logistics.",
-    "tags": ["cheetay", "payments", "sentry", "apm", "monitoring"],
+    "tags": [
+      "cheetay",
+      "payments",
+      "sentry",
+      "apm",
+      "monitoring"
+    ],
     "source": "tenure"
   },
   {
     "id": "craft-languages",
     "title": "Languages",
     "text": "Primary languages: Python, TypeScript, JavaScript, and SQL.",
-    "tags": ["python", "typescript", "javascript", "sql", "languages"],
+    "tags": [
+      "python",
+      "typescript",
+      "javascript",
+      "sql",
+      "languages"
+    ],
     "source": "craft"
   },
   {
     "id": "craft-frameworks",
     "title": "Frameworks",
     "text": "Frameworks: Django, FastAPI, React, and Angular.",
-    "tags": ["django", "fastapi", "react", "angular", "frameworks"],
+    "tags": [
+      "django",
+      "fastapi",
+      "react",
+      "angular",
+      "frameworks"
+    ],
     "source": "craft"
   },
   {
     "id": "craft-ai-data",
     "title": "AI & data stack",
     "text": "AI and data tools: RAG, LangChain, LangGraph, NLP, OCR, Elasticsearch, Redis, and OpenPyXL.",
-    "tags": ["rag", "langchain", "langgraph", "nlp", "ocr", "elasticsearch", "redis", "openpyxl", "ai"],
+    "tags": [
+      "rag",
+      "langchain",
+      "langgraph",
+      "nlp",
+      "ocr",
+      "elasticsearch",
+      "redis",
+      "openpyxl",
+      "ai"
+    ],
     "source": "craft"
   },
   {
     "id": "craft-ops",
     "title": "Cloud & ops",
     "text": "Cloud and ops: Docker, AWS, Celery, Git, Pytest, Sentry, and DataDog.",
-    "tags": ["docker", "aws", "celery", "git", "pytest", "sentry", "datadog", "ops"],
+    "tags": [
+      "docker",
+      "aws",
+      "celery",
+      "git",
+      "pytest",
+      "sentry",
+      "datadog",
+      "ops"
+    ],
     "source": "craft"
   },
   {
     "id": "craft-intro",
     "title": "How I build",
-    "text": "I work across the stack when the product needs it — APIs that stay maintainable, frontends that stay clear, and AI pipelines that earn trust in production.",
-    "tags": ["craft", "fullstack", "ai", "apis"],
+    "text": "I work across the stack when the product needs it: APIs that stay maintainable, frontends that stay clear, and AI pipelines that earn trust in production.",
+    "tags": [
+      "craft",
+      "fullstack",
+      "ai",
+      "apis"
+    ],
     "source": "craft"
   }
 ]

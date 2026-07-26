@@ -24,7 +24,7 @@ export function Tenure() {
           Changelog
         </h2>
         <p className="section__lede">
-          Employers and impact — the changelog of roles, not a second pass at
+          Employers and impact: the changelog of roles, not a second pass at
           the same projects.
         </p>
       </div>
