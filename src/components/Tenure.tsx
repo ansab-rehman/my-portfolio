@@ -1,5 +1,12 @@
 import { tenure } from "../content";
 import { useReveal } from "../hooks/useReveal";
+import xrefLogo from "../assets/xref-logo.png";
+import cheetayLogo from "../assets/cheetay-logo.png";
+
+const logos: Record<string, string> = {
+  Xref: xrefLogo,
+  "Cheetay Logistics": cheetayLogo,
+};
 
 export function Tenure() {
   const { ref, visible } = useReveal<HTMLElement>();
@@ -34,6 +41,15 @@ export function Tenure() {
             </div>
             <div className="changelog__body">
               <h3 className="changelog__company">
+                {logos[entry.company] ? (
+                  <span className="changelog__logo">
+                    <img
+                      src={logos[entry.company]}
+                      alt={`${entry.company} logo`}
+                      loading="lazy"
+                    />
+                  </span>
+                ) : null}
                 {entry.company}
                 <span className="changelog__role"> · {entry.title}</span>
               </h3>

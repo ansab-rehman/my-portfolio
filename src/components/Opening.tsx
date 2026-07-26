@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { profile } from "../content";
+import portrait from "../assets/portrait.png";
 
 export function Opening() {
   const stageRef = useRef<HTMLElement | null>(null);
@@ -46,34 +47,46 @@ export function Opening() {
       </nav>
 
       <div className="opening__stage">
-        <p className="opening__meta reveal-load reveal-load--1">
-          <span className="opening__pulse" aria-hidden="true" />
-          {profile.location}
-        </p>
-        <h1 className="opening__brand reveal-load reveal-load--2">
-          <span className="opening__brand-first">{first}</span>
-          {last ? (
-            <>
-              {" "}
-              <span className="opening__brand-last">{last}</span>
-            </>
-          ) : null}
-        </h1>
-        <p className="opening__line reveal-load reveal-load--3">
-          Full Stack Engineer ·{" "}
-          <span className="opening__line-accent">AI-powered products</span>
-        </p>
-        <div className="opening__cta reveal-load reveal-load--4">
-          <a className="btn btn--primary" href="#work">
-            View work
-            <span className="btn__arrow" aria-hidden="true">
-              ↓
-            </span>
-          </a>
-          <a className="btn btn--ghost" href={`mailto:${profile.email}`}>
-            Email
-          </a>
+        <div className="opening__copy">
+          <p className="opening__meta reveal-load reveal-load--1">
+            <span className="opening__pulse" aria-hidden="true" />
+            {profile.location}
+          </p>
+          <h1 className="opening__brand reveal-load reveal-load--2">
+            <span className="opening__brand-first">{first}</span>
+            {last ? (
+              <>
+                {" "}
+                <span className="opening__brand-last">{last}</span>
+              </>
+            ) : null}
+          </h1>
+          <p className="opening__line reveal-load reveal-load--3">
+            Full Stack Engineer ·{" "}
+            <span className="opening__line-accent">AI-powered products</span>
+          </p>
+          <div className="opening__cta reveal-load reveal-load--4">
+            <a className="btn btn--primary" href="#work">
+              View work
+              <span className="btn__arrow" aria-hidden="true">
+                ↓
+              </span>
+            </a>
+            <a className="btn btn--ghost" href={`mailto:${profile.email}`}>
+              Email
+            </a>
+          </div>
         </div>
+
+        <figure className="opening__portrait reveal-load reveal-load--3">
+          <img
+            src={portrait}
+            alt="Portrait of Ansab Rehman"
+            width={1024}
+            height={1024}
+            loading="eager"
+          />
+        </figure>
       </div>
     </header>
   );
