@@ -29,10 +29,11 @@
   {
     "id": "work-memogent",
     "title": "MemogentAI",
-    "text": "AI-powered financial due diligence from Excel databooks. Built an Excel-first ingest and RAG pipeline that audits spreadsheets, extracts tables, and indexes evidence. Orchestrated multi-section FDD report generation with LangGraph: plan, draft, persona review, and quality gates. Designed human-in-the-loop approve / edit / reject interrupts.",
+    "text": "AI-powered financial due diligence from Excel databooks. Built an Excel-first ingest and RAG pipeline that audits spreadsheets, extracts tables, and indexes evidence. Orchestrated multi-section FDD report generation with LangChain and LangGraph: plan, draft, persona review, and quality gates. Designed human-in-the-loop approve / edit / reject interrupts.",
     "tags": [
       "memogent",
       "rag",
+      "langchain",
       "langgraph",
       "fastapi",
       "excel",
@@ -90,10 +91,11 @@
   {
     "id": "arch-orchestrator",
     "title": "MemogentAI: Document Orchestrator",
-    "text": "Outer LangGraph: global plan, sequential section loop, cross-section review, and final document assembly with durable state keyed by thread.",
+    "text": "Outer LangGraph on LangChain: global plan, sequential section loop, cross-section review, and final document assembly with durable state keyed by thread.",
     "tags": [
       "memogent",
       "architecture",
+      "langchain",
       "langgraph",
       "orchestration",
       "pipeline"

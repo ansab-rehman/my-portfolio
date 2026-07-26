@@ -1,15 +1,22 @@
-import { useId, useState, type FormEvent } from "react";
+import { useEffect, useId, useState, type FormEvent } from "react";
 import { ASK_SUGGESTIONS, type AskResult } from "../lib/askPortfolio";
 import { askPortfolioSmart, sourceHref, sourceLabel } from "../lib/askClient";
 import { useReveal } from "../hooks/useReveal";
+import { ASK_INPUT_ID } from "./AskFab";
 
 export function AskPortfolio() {
   const { ref, visible } = useReveal<HTMLElement>();
-  const inputId = useId();
+  const labelId = useId();
   const [query, setQuery] = useState("");
   const [result, setResult] = useState<AskResult | null>(null);
   const [passagesOpen, setPassagesOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (window.location.hash !== "#ask") return;
+    const input = document.getElementById(ASK_INPUT_ID) as HTMLInputElement | null;
+    window.setTimeout(() => input?.focus({ preventScroll: true }), 300);
+  }, []);
 
   const runAsk = async (raw: string) => {
     const trimmed = raw.trim();
@@ -54,12 +61,12 @@ export function AskPortfolio() {
       </div>
 
       <form className="ask__form" onSubmit={onSubmit}>
-        <label className="ask__label" htmlFor={inputId}>
+        <label className="ask__label" htmlFor={ASK_INPUT_ID} id={labelId}>
           Ask a question
         </label>
         <div className="ask__row">
           <input
-            id={inputId}
+            id={ASK_INPUT_ID}
             className="ask__input"
             type="search"
             name="q"

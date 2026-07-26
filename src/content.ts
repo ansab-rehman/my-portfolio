@@ -42,10 +42,10 @@ export const selectedWork: WorkCase[] = [
     context: "AI-powered financial due diligence from Excel databooks",
     outcomes: [
       "Built an Excel-first ingest and RAG pipeline that audits spreadsheets, extracts tables, and indexes evidence for grounded generation.",
-      "Orchestrated multi-section FDD report generation with LangGraph: plan, draft, persona review, and quality gates before assembly.",
+      "Orchestrated multi-section FDD report generation with LangChain and LangGraph: plan, draft, persona review, and quality gates before assembly.",
       "Designed human-in-the-loop approve / edit / reject interrupts so analysts stay in control of every critical step.",
     ],
-    tech: "Python · FastAPI · LangGraph · LanceDB · RAG · React · Tauri",
+    tech: "Python · FastAPI · LangChain · LangGraph · LanceDB · RAG · React · Tauri",
     architecture: {
       summary:
         "Local-first desktop app plus FastAPI engine: upload a databook, retrieve evidence, generate sections with gated review, then export the report.",
@@ -73,7 +73,7 @@ export const selectedWork: WorkCase[] = [
           id: "orchestrator",
           label: "Document Orchestrator",
           detail:
-            "Outer LangGraph: global plan, sequential section loop, cross-section review, and final document assembly with durable state keyed by thread.",
+            "Outer LangGraph on LangChain: global plan, sequential section loop, cross-section review, and final document assembly with durable state keyed by thread.",
         },
         {
           id: "section",
