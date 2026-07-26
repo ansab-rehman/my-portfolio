@@ -19,13 +19,13 @@ export function Tenure() {
       ref={ref}
     >
       <div className="section__header">
-        <p className="section__eyebrow">Tenure</p>
+        <p className="section__eyebrow">Work experience</p>
         <h2 className="section__title" id="tenure-heading">
-          Changelog
+          Roles and impact
         </h2>
         <p className="section__lede">
-          Employers and impact: the changelog of roles, not a second pass at
-          the same projects.
+          The teams I joined, the systems I improved, and the results of that
+          work.
         </p>
       </div>
 

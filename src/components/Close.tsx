@@ -18,6 +18,9 @@ export function Close() {
           >
             LinkedIn
           </a>
+          <a className="btn btn--ghost" href="/Ansab-Rehman-CV.pdf" download="Ansab-Rehman-CV.pdf">
+            Download resume
+          </a>
         </div>
         <p className="close__edu">
           {profile.education.degree} · {profile.education.school} ·{" "}

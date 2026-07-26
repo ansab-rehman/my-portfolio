@@ -131,13 +131,13 @@ export function SelectedWork() {
   return (
     <section className="section selected" id="work" aria-labelledby="work-heading">
       <div className="section__header">
-        <p className="section__eyebrow">Selected work</p>
+        <p className="section__eyebrow">Products</p>
         <h2 className="section__title" id="work-heading">
-          Proof over pitch
+          Things I have built
         </h2>
         <p className="section__lede">
-          Products and systems I built, separate from where I worked. Tenure
-          covers the employers; this is the work itself.
+          Products and systems I built, separate from where I worked. Work
+          experience covers the employers; this is the work itself.
         </p>
       </div>
 

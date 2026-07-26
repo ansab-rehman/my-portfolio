@@ -106,9 +106,9 @@ const SOURCE_HREF: Record<KnowledgeSource, string> = {
 
 const SOURCE_LABEL: Record<KnowledgeSource, string> = {
   profile: "Profile",
-  work: "Selected work",
-  tenure: "Tenure",
-  craft: "Craft",
+  work: "Products",
+  tenure: "Work experience",
+  craft: "Skills",
   architecture: "Architecture",
 };
 

@@ -12,9 +12,9 @@ export function Craft() {
       ref={ref}
     >
       <div className="section__header">
-        <p className="section__eyebrow">Craft</p>
+        <p className="section__eyebrow">Skills</p>
         <h2 className="section__title" id="craft-heading">
-          How I build
+          Tools I work with
         </h2>
         <p className="section__lede">{craft.intro}</p>
       </div>
