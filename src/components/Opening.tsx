@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { profile } from "../content";
 import portrait from "../assets/portrait.png";
 import { useTheme } from "../hooks/useTheme";
+import { emphasizeTech } from "../lib/emphasizeTech";
 
 const CV_HREF = "/Ansab-Rehman-CV.pdf";
 const CV_FILENAME = "Ansab-Rehman-CV.pdf";
@@ -152,9 +153,8 @@ export function Opening() {
               </>
             ) : null}
           </h1>
-          <p className="opening__line reveal-load reveal-load--2">
-            Full Stack Engineer ·{" "}
-            <span className="opening__line-accent">AI-powered products</span>
+          <p className="opening__summary reveal-load reveal-load--2">
+            {emphasizeTech(profile.summary)}
           </p>
           <div className="opening__cta reveal-load reveal-load--3">
             <a className="btn btn--primary" href="#work">

@@ -1,5 +1,6 @@
 import { craft } from "../content";
 import { useReveal } from "../hooks/useReveal";
+import { emphasizeTech } from "../lib/emphasizeTech";
 
 export function Craft() {
   const { ref, visible } = useReveal<HTMLElement>();
@@ -16,7 +17,7 @@ export function Craft() {
         <h2 className="section__title" id="craft-heading">
           Tools I work with
         </h2>
-        <p className="section__lede">{craft.intro}</p>
+        <p className="section__lede">{emphasizeTech(craft.intro)}</p>
       </div>
 
       <div className="craft__groups">
@@ -29,7 +30,9 @@ export function Craft() {
             <ul className="craft__chips">
               {group.items.map((item) => (
                 <li key={item}>
-                  <span className="craft__chip">{item}</span>
+                  <span className="craft__chip">
+                    <strong className="tech-term">{item}</strong>
+                  </span>
                 </li>
               ))}
             </ul>

@@ -2,6 +2,7 @@ import { tenure } from "../content";
 import { useReveal } from "../hooks/useReveal";
 import xrefLogo from "../assets/xref-logo.png";
 import cheetayLogo from "../assets/cheetay-logo.png";
+import { emphasizeTech } from "../lib/emphasizeTech";
 
 const logos: Record<string, string> = {
   Xref: xrefLogo,
@@ -55,7 +56,7 @@ export function Tenure() {
               </h3>
               <ul className="changelog__lines">
                 {entry.lines.map((line) => (
-                  <li key={line}>{line}</li>
+                  <li key={line}>{emphasizeTech(line)}</li>
                 ))}
               </ul>
             </div>

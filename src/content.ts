@@ -2,7 +2,7 @@ export const profile = {
   name: "Ansab Rehman",
   role: "Full Stack Engineer · AI-powered products",
   summary:
-    "Full Stack Engineer with 5+ years building scalable web applications and AI-enabled systems. Python/Django, React, Angular, distributed task processing, search infrastructure, and production-grade integrations, with proven impact in reliability, test coverage, and performance.",
+    "I'm a Full Stack Engineer with 5+ years of experience building scalable web applications and AI-powered solutions. I specialize in Python, Django, FastAPI, React, and Angular, with hands-on experience in RAG, LangChain, LangGraph, LLM integrations, OCR, NLP, and AI agent workflows. From enterprise platforms and payment integrations to distributed systems and AI-powered applications, I enjoy solving complex engineering problems and building products that are reliable, scalable, and genuinely useful.",
   email: "ansabrehman@hotmail.com",
   linkedin: "https://linkedin.com/in/ansabrehman/",
   location: "Lahore, Pakistan",
@@ -98,7 +98,7 @@ export const selectedWork: WorkCase[] = [
       "Built a centralized admin for products, inventory, deals, CMS content, and operational workflows.",
       "Gave marketing and operations teams a single surface for day-to-day control instead of fragmented tools.",
     ],
-    tech: "Django · Jinja · AJAX · Python",
+    tech: "Django · Jinja · AJAX · Python · CSS · JS · HTML5",
   },
   {
     id: "sentiment",

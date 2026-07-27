@@ -5,6 +5,7 @@ import {
   type WorkCase,
 } from "../content";
 import { useReveal } from "../hooks/useReveal";
+import { emphasizeTech } from "../lib/emphasizeTech";
 
 function ArchitecturePanel({
   architecture,
@@ -25,10 +26,10 @@ function ArchitecturePanel({
       role="region"
       aria-label="MemogentAI architecture"
     >
-      <p className="case-arch__summary">{architecture.summary}</p>
+      <p className="case-arch__summary">{emphasizeTech(architecture.summary)}</p>
       <p className="case-arch__flow">
         <span className="case-arch__flow-label">Flow</span>
-        {architecture.flow}
+        {emphasizeTech(architecture.flow)}
       </p>
       <ol className="case-arch__nodes">
         {architecture.nodes.map((node, i) => {
@@ -50,7 +51,9 @@ function ArchitecturePanel({
                 <span className="case-arch__node-label">{node.label}</span>
               </button>
               {active ? (
-                <p className="case-arch__node-detail">{node.detail}</p>
+                <p className="case-arch__node-detail">
+                  {emphasizeTech(node.detail)}
+                </p>
               ) : null}
             </li>
           );
@@ -90,16 +93,16 @@ function CaseBlock({
         {status ? <span className="case__status">{status}</span> : null}
       </div>
       <h3 className="case__title">{title}</h3>
-      <p className="case__context">{context}</p>
+      <p className="case__context">{emphasizeTech(context)}</p>
       <ul className="case__outcomes">
         {outcomes.map((line) => (
-          <li key={line}>{line}</li>
+          <li key={line}>{emphasizeTech(line)}</li>
         ))}
       </ul>
       <p className="case__tech">
         {tech.split(" · ").map((token) => (
           <span key={token} className="case__tech-chip">
-            {token}
+            <strong className="tech-term">{token}</strong>
           </span>
         ))}
       </p>

@@ -2,15 +2,22 @@
   {
     "id": "profile-summary",
     "title": "Profile",
-    "text": "Full Stack Engineer with 5+ years building scalable web applications and AI-enabled systems. Python/Django, React, Angular, distributed task processing, search infrastructure, and production-grade integrations, with proven impact in reliability, test coverage, and performance.",
+    "text": "I'm a Full Stack Engineer with 5+ years of experience building scalable web applications and AI-powered solutions. I specialize in Python, Django, FastAPI, React, and Angular, with hands-on experience in RAG, LangChain, LangGraph, LLM integrations, OCR, NLP, and AI agent workflows. From enterprise platforms and payment integrations to distributed systems and AI-powered applications, I enjoy solving complex engineering problems and building products that are reliable, scalable, and genuinely useful.",
     "tags": [
-      "profile",
-      "fullstack",
-      "python",
-      "django",
-      "react",
-      "angular",
+      "agents",
       "ai",
+      "angular",
+      "django",
+      "fastapi",
+      "fullstack",
+      "langchain",
+      "langgraph",
+      "llm",
+      "nlp",
+      "ocr",
+      "profile",
+      "python",
+      "react",
       "search"
     ],
     "source": "profile"
@@ -18,11 +25,10 @@
   {
     "id": "profile-education",
     "title": "Education",
-    "text": "Bachelor of Computer Science from FAST NUCES, Lahore (2018 to 2022). Based in Lahore, Pakistan.",
+    "text": "Bachelor of Computer Science from FAST NUCES, Lahore (2018 to 2022).",
     "tags": [
       "education",
-      "fast",
-      "lahore"
+      "fast"
     ],
     "source": "profile"
   },
@@ -133,14 +139,19 @@
   {
     "id": "work-cheetay-admin",
     "title": "Cheetay Admin App",
-    "text": "Internal operations platform for Cheetay Logistics. Centralized admin for products, inventory, deals, CMS content, and operational workflows: one surface for marketing and operations instead of fragmented tools. Built with Django, Jinja, and AJAX.",
+    "text": "Internal operations platform for Cheetay Logistics. Centralized admin for products, inventory, deals, CMS content, and operational workflows: one surface for marketing and operations instead of fragmented tools. Built with Django, Jinja, AJAX, Python, CSS, JS, and HTML5.",
     "tags": [
       "cheetay",
       "admin",
       "django",
       "jinja",
       "cms",
-      "inventory"
+      "inventory",
+      "python",
+      "ajax",
+      "css",
+      "js",
+      "html5"
     ],
     "source": "work"
   },
