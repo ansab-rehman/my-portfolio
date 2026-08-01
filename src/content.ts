@@ -1,3 +1,12 @@
+import laamDashboard from "./assets/work/laam-dashboard/dashboard.png";
+import laamFiltered from "./assets/work/laam-dashboard/filtered.png";
+import laamInsights from "./assets/work/laam-dashboard/product-insights.png";
+import fiscalflowHome from "./assets/work/fiscalflow/home.png";
+import fiscalflowWorkspace from "./assets/work/fiscalflow/workspace.png";
+import fiscalflowSettings from "./assets/work/fiscalflow/settings.png";
+import fiscalflowAudit from "./assets/work/fiscalflow/audit-review.png";
+import fiscalflowDemo from "./assets/work/fiscalflow/demo.mp4";
+
 export const profile = {
   name: "Ansab Rehman",
   role: "Full Stack Engineer · AI-powered products",
@@ -5,6 +14,7 @@ export const profile = {
     "I'm a Full Stack Engineer with 5+ years of experience building scalable web applications and AI-powered solutions. I specialize in Python, Django, FastAPI, React, and Angular, with hands-on experience in RAG, LangChain, LangGraph, LLM integrations, OCR, NLP, and AI agent workflows. From enterprise platforms and payment integrations to distributed systems and AI-powered applications, I enjoy solving complex engineering problems and building products that are reliable, scalable, and genuinely useful.",
   email: "ansabrehman@hotmail.com",
   linkedin: "https://linkedin.com/in/ansabrehman/",
+  github: "https://github.com/ansab-rehman",
   location: "Lahore, Pakistan",
   education: {
     degree: "Bachelor of Computer Science",
@@ -25,6 +35,17 @@ export type CaseArchitecture = {
   nodes: ArchitectureNode[];
 };
 
+export type CaseScreenshot = {
+  src: string;
+  alt: string;
+  caption: string;
+};
+
+export type CaseVideo = {
+  src: string;
+  caption: string;
+};
+
 export type WorkCase = {
   id: string;
   title: string;
@@ -32,13 +53,16 @@ export type WorkCase = {
   status?: string;
   outcomes: string[];
   tech: string;
+  href?: string;
+  video?: CaseVideo;
+  screenshots?: CaseScreenshot[];
   architecture?: CaseArchitecture;
 };
 
 export const selectedWork: WorkCase[] = [
   {
     id: "memogent",
-    title: "MemogentAI",
+    title: "MemogentAI (FiscalFlow)",
     context: "AI-powered financial due diligence from Excel databooks",
     outcomes: [
       "Built an Excel-first ingest and RAG pipeline that audits spreadsheets, extracts tables, and indexes evidence for grounded generation.",
@@ -46,6 +70,33 @@ export const selectedWork: WorkCase[] = [
       "Designed human-in-the-loop approve / edit / reject interrupts so analysts stay in control of every critical step.",
     ],
     tech: "Python · FastAPI · LangChain · LangGraph · LanceDB · RAG · React · Tauri",
+    href: "https://github.com/FiscalFlowHQ/fiscalflow-ui",
+    video: {
+      src: fiscalflowDemo,
+      caption: "Desktop walkthrough — FiscalFlow FDD workspace",
+    },
+    screenshots: [
+      {
+        src: fiscalflowHome,
+        alt: "FiscalFlow desktop home with New FDD run and sessions list",
+        caption: "Home — start a new FDD run",
+      },
+      {
+        src: fiscalflowWorkspace,
+        alt: "FiscalFlow run workspace with pipeline, chat, databook upload, and composer",
+        caption: "Workspace — pipeline, chat, and composer",
+      },
+      {
+        src: fiscalflowSettings,
+        alt: "FiscalFlow settings for API connection and LLM providers",
+        caption: "Settings — API connection and providers",
+      },
+      {
+        src: fiscalflowAudit,
+        alt: "FiscalFlow Excel Auditor review mode for spreadsheet errors",
+        caption: "Excel Auditor — review and fix errors",
+      },
+    ],
     architecture: {
       summary:
         "Local-first desktop app plus FastAPI engine: upload a databook, retrieve evidence, generate sections with gated review, then export the report.",
@@ -89,6 +140,36 @@ export const selectedWork: WorkCase[] = [
         },
       ],
     },
+  },
+  {
+    id: "laam-analytics",
+    title: "LAAM Analytics",
+    context:
+      "Buyer-behaviour analytics for a fashion marketplace — server-side SQL aggregates with a React dashboard",
+    outcomes: [
+      "Built a Django API that computes every aggregate in SQLite (sales over time, top products/brands, market-basket co-occurrence with confidence and lift) — the browser never receives raw order rows.",
+      "Shipped a filterable React dashboard with half-open date ranges, brand drill-down, paginated products, and a product-insights drawer for frequently-bought-together analysis.",
+      "Documented measured query performance (EXPLAIN + timings), caching, Docker Compose, and 122 backend tests pinned to independently verified seed numbers.",
+    ],
+    tech: "Django · DRF · SQLite · React · Vite · TypeScript · TanStack Query · Recharts · Docker",
+    href: "https://github.com/ansab-rehman/buyer-analytics",
+    screenshots: [
+      {
+        src: laamDashboard,
+        alt: "LAAM Analytics overview with KPIs, sales chart, top brands and products",
+        caption: "Overview — KPIs, sales over time, brands, and products",
+      },
+      {
+        src: laamFiltered,
+        alt: "LAAM Analytics filtered to Junaid Jamshed for Oct 2025–Mar 2026",
+        caption: "Brand drill-down with a date range",
+      },
+      {
+        src: laamInsights,
+        alt: "Product insights drawer showing frequently bought together with lift",
+        caption: "Product insights — co-purchases, confidence, and lift",
+      },
+    ],
   },
   {
     id: "cheetay-admin",

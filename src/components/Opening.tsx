@@ -3,6 +3,7 @@ import { profile } from "../content";
 import portrait from "../assets/portrait.png";
 import { useTheme } from "../hooks/useTheme";
 import { emphasizeTech } from "../lib/emphasizeTech";
+import { GitHubIcon, LinkedInIcon } from "./SocialIcons";
 
 const CV_HREF = "/Ansab-Rehman-CV.pdf";
 const CV_FILENAME = "Ansab-Rehman-CV.pdf";
@@ -168,6 +169,24 @@ export function Opening() {
             </button>
             <a className="btn btn--ghost" href={`mailto:${profile.email}`}>
               Email
+            </a>
+            <a
+              className="btn btn--ghost btn--social"
+              href={profile.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedInIcon className="btn__icon" />
+              LinkedIn
+            </a>
+            <a
+              className="btn btn--ghost btn--social"
+              href={profile.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GitHubIcon className="btn__icon" />
+              GitHub
             </a>
           </div>
         </div>

@@ -82,18 +82,42 @@ const SYNONYMS: Record<string, string[]> = {
   retrieval: ["rag", "search", "chatbot"],
   langgraph: ["orchestration", "pipeline", "graph", "memogent"],
   langchain: ["langgraph", "rag", "ai"],
-  memogent: ["architecture", "langgraph", "rag", "fdd", "due", "memogentai"],
-  memogentai: ["memogent", "architecture", "langgraph", "rag", "fdd"],
+  memogent: ["architecture", "langgraph", "rag", "fdd", "due", "memogentai", "fiscalflow"],
+  memogentai: ["memogent", "architecture", "langgraph", "rag", "fdd", "fiscalflow"],
+  github: ["git", "repos", "repository", "code", "profile", "ansab"],
+  linkedin: ["contact", "profile", "network", "hire"],
+  fiscalflow: ["memogent", "fdd", "tauri", "excel", "rag", "langgraph", "due", "demo", "video"],
+  demo: ["video", "walkthrough", "fiscalflow", "memogent"],
+  video: ["demo", "walkthrough", "fiscalflow"],
+  fdd: ["fiscalflow", "memogent", "due", "excel"],
   architecture: ["memogent", "pipeline", "langgraph"],
   hitl: ["human", "review", "approve", "interrupt"],
   human: ["hitl", "review"],
   coverage: ["testing", "test", "pytest"],
   testing: ["coverage", "test"],
   chatbot: ["retrieval", "knowledge", "ai"],
-  django: ["python", "backend"],
+  django: ["python", "backend", "drf"],
   fastapi: ["python", "api"],
   rbac: ["iam", "access", "role"],
   iam: ["rbac", "access"],
+  ansab: ["rehman", "who", "about", "profile", "engineer", "fullstack"],
+  rehman: ["ansab", "who", "about", "profile"],
+  who: ["ansab", "about", "profile", "introduction", "identity"],
+  about: ["ansab", "who", "profile"],
+  best: ["strengths", "strongest", "specialize", "skills", "expertise", "good"],
+  strengths: ["best", "skills", "specialize"],
+  skills: ["best", "craft", "stack", "specialize"],
+  specialize: ["best", "skills", "expertise"],
+  laam: ["analytics", "dashboard", "buyer", "sqlite", "django", "fbt"],
+  analytics: ["laam", "dashboard", "sql", "sqlite", "buyer"],
+  dashboard: ["laam", "analytics", "react", "recharts"],
+  fbt: ["laam", "lift", "confidence", "bought", "basket"],
+  lift: ["fbt", "confidence", "basket", "laam"],
+  sqlite: ["sql", "laam", "analytics"],
+  vite: ["react", "typescript", "laam"],
+  recharts: ["charts", "react", "laam", "analytics"],
+  tanstack: ["query", "react", "laam"],
+  docker: ["compose", "ops", "laam"],
 };
 
 const SOURCE_HREF: Record<KnowledgeSource, string> = {
@@ -207,7 +231,7 @@ export function retrievePortfolio(query: string): RetrieveResult {
       empty: true,
       matches: [],
       emptyAnswer:
-        "Ask something specific. Try Elasticsearch, MemogentAI architecture, test coverage, or RAG.",
+        "Ask something specific. Try who is Ansab, LAAM Analytics, MemogentAI, Elasticsearch, or what he is best at.",
     };
   }
 
@@ -223,7 +247,7 @@ export function retrievePortfolio(query: string): RetrieveResult {
       empty: true,
       matches: [],
       emptyAnswer:
-        "I don’t have that in this portfolio index. Try Elasticsearch, MemogentAI, Django, or RAG.",
+        "I don’t have that in this portfolio index. Try who is Ansab, LAAM Analytics, MemogentAI, Django, or RAG.",
     };
   }
 
@@ -262,14 +286,14 @@ export function buildLlmPrompt(query: string, matches: AskMatch[]): {
 
   return {
     system:
-      "You answer questions about Ansab Rehman for his portfolio site. Use only the provided passages. Write 2 to 4 short sentences in first person as Ansab. No em dashes. No bullet lists. If the passages are not enough, say you do not cover that in this portfolio and suggest Elasticsearch, MemogentAI, Django, or RAG.",
+      "You answer questions about Ansab Rehman for his portfolio site. Use only the provided passages. Write 2 to 4 short sentences in first person as Ansab. No em dashes. No bullet lists. If the passages are not enough, say you do not cover that in this portfolio and suggest who Ansab is, LAAM Analytics, MemogentAI, Django, or RAG.",
     user: `Question: ${query}\n\nPassages:\n${passages}`,
   };
 }
 
 export const ASK_SUGGESTIONS = [
-  "What have you built with Elasticsearch?",
-  "How does MemogentAI architecture work?",
-  "Tell me about test coverage",
-  "What RAG pipelines have you built?",
+  "Who is Ansab?",
+  "What is Ansab best at?",
+  "Tell me about LAAM Analytics",
+  "What skills did LAAM Analytics use?",
 ] as const;

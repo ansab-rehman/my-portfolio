@@ -71,7 +71,7 @@ export function AskPortfolio() {
             type="search"
             name="q"
             autoComplete="off"
-            placeholder="What have you built with Elasticsearch?"
+            placeholder="Who is Ansab? What about LAAM Analytics?"
             value={query}
             disabled={loading}
             onChange={(e) => setQuery(e.target.value)}

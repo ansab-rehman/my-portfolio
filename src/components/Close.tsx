@@ -1,4 +1,5 @@
 import { profile } from "../content";
+import { GitHubIcon, LinkedInIcon } from "./SocialIcons";
 
 export function Close() {
   return (
@@ -11,12 +12,22 @@ export function Close() {
             {profile.email}
           </a>
           <a
-            className="btn btn--ghost"
+            className="btn btn--ghost btn--social"
             href={profile.linkedin}
             target="_blank"
             rel="noopener noreferrer"
           >
+            <LinkedInIcon className="btn__icon" />
             LinkedIn
+          </a>
+          <a
+            className="btn btn--ghost btn--social"
+            href={profile.github}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <GitHubIcon className="btn__icon" />
+            GitHub
           </a>
           <a className="btn btn--ghost" href="/Ansab-Rehman-CV.pdf" download="Ansab-Rehman-CV.pdf">
             Download resume

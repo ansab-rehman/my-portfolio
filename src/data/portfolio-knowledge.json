@@ -1,9 +1,42 @@
 [
   {
-    "id": "profile-summary",
-    "title": "Profile",
-    "text": "I'm a Full Stack Engineer with 5+ years of experience building scalable web applications and AI-powered solutions. I specialize in Python, Django, FastAPI, React, and Angular, with hands-on experience in RAG, LangChain, LangGraph, LLM integrations, OCR, NLP, and AI agent workflows. From enterprise platforms and payment integrations to distributed systems and AI-powered applications, I enjoy solving complex engineering problems and building products that are reliable, scalable, and genuinely useful.",
+    "id": "profile-who",
+    "title": "Who is Ansab Rehman?",
+    "text": "I am Ansab Rehman, a Full Stack Engineer based in Lahore, Pakistan. I build scalable web applications and AI-powered products. You can reach me at ansabrehman@hotmail.com, on LinkedIn at linkedin.com/in/ansabrehman/, or on GitHub at github.com/ansab-rehman.",
     "tags": [
+      "ansab",
+      "rehman",
+      "who",
+      "about",
+      "introduction",
+      "identity",
+      "name",
+      "profile",
+      "contact",
+      "email",
+      "linkedin",
+      "github",
+      "lahore",
+      "pakistan"
+    ],
+    "source": "profile"
+  },
+  {
+    "id": "profile-summary",
+    "title": "What Ansab does",
+    "text": "I am a Full Stack Engineer with 5+ years of experience building scalable web applications and AI-powered solutions. I specialize in Python, Django, FastAPI, React, and Angular, with hands-on experience in RAG, LangChain, LangGraph, LLM integrations, OCR, NLP, and AI agent workflows. From enterprise platforms and payment integrations to distributed systems and AI-powered applications, I enjoy solving complex engineering problems and building products that are reliable, scalable, and genuinely useful.",
+    "tags": [
+      "ansab",
+      "rehman",
+      "who",
+      "about",
+      "what",
+      "does",
+      "do",
+      "work",
+      "role",
+      "job",
+      "engineer",
       "agents",
       "ai",
       "angular",
@@ -18,7 +51,36 @@
       "profile",
       "python",
       "react",
-      "search"
+      "search",
+      "experience"
+    ],
+    "source": "profile"
+  },
+  {
+    "id": "profile-best-at",
+    "title": "What Ansab is best at",
+    "text": "I am strongest as a full-stack engineer who ships production systems end to end: solid Django and FastAPI backends, clear React and Angular frontends, and AI pipelines (RAG, LangChain, LangGraph) that stay trustworthy under review. I am especially good at turning messy data and complex workflows into products teams can actually use — from Elasticsearch search and payment integrations to analytics dashboards and human-in-the-loop AI agents.",
+    "tags": [
+      "ansab",
+      "best",
+      "strengths",
+      "strongest",
+      "specialize",
+      "specializes",
+      "skilled",
+      "skills",
+      "good",
+      "expert",
+      "expertise",
+      "focus",
+      "fullstack",
+      "ai",
+      "backend",
+      "frontend",
+      "rag",
+      "django",
+      "react",
+      "product"
     ],
     "source": "profile"
   },
@@ -27,26 +89,100 @@
     "title": "Education",
     "text": "Bachelor of Computer Science from FAST NUCES, Lahore (2018 to 2022).",
     "tags": [
+      "ansab",
       "education",
-      "fast"
+      "fast",
+      "nuces",
+      "degree",
+      "university",
+      "lahore",
+      "school"
+    ],
+    "source": "profile"
+  },
+  {
+    "id": "profile-location-contact",
+    "title": "Location and contact",
+    "text": "I am based in Lahore, Pakistan. Email ansabrehman@hotmail.com, LinkedIn linkedin.com/in/ansabrehman/, or GitHub github.com/ansab-rehman.",
+    "tags": [
+      "ansab",
+      "location",
+      "lahore",
+      "pakistan",
+      "contact",
+      "email",
+      "linkedin",
+      "github",
+      "hire",
+      "reach",
+      "profile"
+    ],
+    "source": "profile"
+  },
+  {
+    "id": "profile-github",
+    "title": "GitHub profile and repos",
+    "text": "My GitHub is github.com/ansab-rehman. Public work there includes LAAM Analytics (buyer-analytics) and FiscalFlow / MemogentAI UI under the FiscalFlowHQ org at github.com/FiscalFlowHQ/fiscalflow-ui, with the API sibling fiscalflow-api.",
+    "tags": [
+      "ansab",
+      "github",
+      "git",
+      "repos",
+      "repository",
+      "code",
+      "profile",
+      "laam",
+      "analytics",
+      "buyer-analytics",
+      "fiscalflow",
+      "memogent",
+      "contact"
+    ],
+    "source": "profile"
+  },
+  {
+    "id": "profile-linkedin",
+    "title": "LinkedIn",
+    "text": "Find me on LinkedIn at linkedin.com/in/ansabrehman/ for professional background, experience at Xref and Cheetay, and collaboration.",
+    "tags": [
+      "ansab",
+      "linkedin",
+      "contact",
+      "network",
+      "profile",
+      "hire",
+      "reach"
     ],
     "source": "profile"
   },
   {
     "id": "work-memogent",
-    "title": "MemogentAI",
-    "text": "AI-powered financial due diligence from Excel databooks. Built an Excel-first ingest and RAG pipeline that audits spreadsheets, extracts tables, and indexes evidence. Orchestrated multi-section FDD report generation with LangChain and LangGraph: plan, draft, persona review, and quality gates. Designed human-in-the-loop approve / edit / reject interrupts.",
+    "title": "MemogentAI (FiscalFlow)",
+    "text": "MemogentAI, also known as FiscalFlow, is an AI-powered financial due diligence product from Excel databooks. I built an Excel-first ingest and RAG pipeline that audits spreadsheets, extracts tables, and indexes evidence. Orchestrated multi-section FDD report generation with LangChain and LangGraph: plan, draft, persona review, and quality gates. Designed human-in-the-loop approve / edit / reject interrupts. Desktop client: React + Tauri (fiscalflow-ui) with a looping demo walkthrough plus screenshots of home, workspace, settings, and Excel Auditor review. API: fiscalflow-api. Repo: https://github.com/FiscalFlowHQ/fiscalflow-ui",
     "tags": [
       "memogent",
+      "memogentai",
+      "fiscalflow",
+      "fiscal",
+      "fdd",
+      "due diligence",
       "rag",
       "langchain",
       "langgraph",
       "fastapi",
       "excel",
-      "fdd",
-      "due diligence",
       "hitl",
-      "ai"
+      "ai",
+      "tauri",
+      "react",
+      "ansab",
+      "product",
+      "desktop",
+      "demo",
+      "video",
+      "walkthrough",
+      "screenshot",
+      "github"
     ],
     "source": "work"
   },
@@ -56,6 +192,7 @@
     "text": "Tauri + React run UI: upload databooks, watch SSE progress on a pipeline rail, review drafts and evidence, then export Markdown / PPTX / PDF.",
     "tags": [
       "memogent",
+      "fiscalflow",
       "architecture",
       "tauri",
       "react",
@@ -81,7 +218,7 @@
   {
     "id": "arch-ingest",
     "title": "MemogentAI: Ingest & RAG",
-    "text": "Audit Excel for reference errors, extract tables into a structured catalog, then embed chunks into a local LanceDB hybrid store with dense retrieval and BM25.",
+    "text": "Audit Excel for reference errors, extract tables into a structured catalog, then embed chunks into a local LanceDB hybrid store (dense + BM25).",
     "tags": [
       "memogent",
       "architecture",
@@ -111,7 +248,7 @@
   {
     "id": "arch-section",
     "title": "MemogentAI: Section Engine",
-    "text": "Inner chain per section: retrieve, compress evidence, outline, draft, multi-persona critique, polish, claims, and quality gate.",
+    "text": "Inner chain per section: retrieve → compress evidence → outline → draft → multi-persona critique → polish → claims → quality gate.",
     "tags": [
       "memogent",
       "architecture",
@@ -137,6 +274,94 @@
     "source": "architecture"
   },
   {
+    "id": "work-laam-analytics",
+    "title": "LAAM Analytics",
+    "text": "LAAM Analytics is a buyer-behaviour analytics product for a fashion marketplace. I built a Django and DRF API that computes every aggregate in SQLite — sales over time, top products and brands, and frequently-bought-together co-occurrence with confidence and lift — so the browser never receives raw order rows. The React Vite dashboard has composable filters, brand drill-down, pagination, and a product-insights drawer. I added LocMem caching, Docker Compose, measured EXPLAIN query plans, and 122 backend tests. Public repo: https://github.com/ansab-rehman/buyer-analytics",
+    "tags": [
+      "laam",
+      "analytics",
+      "dashboard",
+      "buyer",
+      "behaviour",
+      "behavior",
+      "marketplace",
+      "fashion",
+      "django",
+      "drf",
+      "sqlite",
+      "sql",
+      "react",
+      "vite",
+      "typescript",
+      "tanstack",
+      "recharts",
+      "docker",
+      "caching",
+      "pagination",
+      "fbt",
+      "market basket",
+      "co-occurrence",
+      "lift",
+      "confidence",
+      "ansab",
+      "product",
+      "assignment",
+      "github",
+      "demo",
+      "screenshot"
+    ],
+    "source": "work"
+  },
+  {
+    "id": "work-laam-skills",
+    "title": "Skills used in LAAM Analytics",
+    "text": "LAAM Analytics used Django and Django REST Framework for the API, parameterized SQLite SQL for all aggregation, React with Vite and TypeScript for the UI, TanStack Query for data fetching, Recharts for charts, LocMem response caching, and Docker Compose with nginx. Core skills on display: server-side analytics, date-range edge cases, market-basket analysis (confidence and lift), pagination, query-performance thinking with EXPLAIN plans, and clean full-stack delivery.",
+    "tags": [
+      "laam",
+      "analytics",
+      "skills",
+      "stack",
+      "django",
+      "drf",
+      "sqlite",
+      "sql",
+      "react",
+      "vite",
+      "typescript",
+      "tanstack",
+      "query",
+      "recharts",
+      "docker",
+      "nginx",
+      "caching",
+      "explain",
+      "performance",
+      "testing",
+      "fullstack"
+    ],
+    "source": "work"
+  },
+  {
+    "id": "work-laam-fbt",
+    "title": "LAAM Analytics: frequently bought together",
+    "text": "In LAAM Analytics I implemented market-basket analysis for a selected product: same-order co-occurrence ranked like the reference SQL, plus confidence and lift so bestsellers do not fake affinity. The insights drawer also shows how many customers bought the product. Aggregation stays in SQL on the server.",
+    "tags": [
+      "laam",
+      "analytics",
+      "fbt",
+      "frequently",
+      "bought",
+      "together",
+      "market basket",
+      "co-occurrence",
+      "lift",
+      "confidence",
+      "sql",
+      "insights"
+    ],
+    "source": "work"
+  },
+  {
     "id": "work-cheetay-admin",
     "title": "Cheetay Admin App",
     "text": "Internal operations platform for Cheetay Logistics. Centralized admin for products, inventory, deals, CMS content, and operational workflows: one surface for marketing and operations instead of fragmented tools. Built with Django, Jinja, AJAX, Python, CSS, JS, and HTML5.",
@@ -151,7 +376,9 @@
       "ajax",
       "css",
       "js",
-      "html5"
+      "html5",
+      "ansab",
+      "product"
     ],
     "source": "work"
   },
@@ -164,7 +391,9 @@
       "nlp",
       "django",
       "twitter",
-      "classification"
+      "classification",
+      "ansab",
+      "product"
     ],
     "source": "work"
   },
@@ -181,7 +410,11 @@
       "ai",
       "chatbot",
       "rbac",
-      "iam"
+      "iam",
+      "ansab",
+      "experience",
+      "job",
+      "work"
     ],
     "source": "tenure"
   },
@@ -240,7 +473,11 @@
       "django",
       "sentry",
       "apm",
-      "payments"
+      "payments",
+      "ansab",
+      "experience",
+      "job",
+      "work"
     ],
     "source": "tenure"
   },
@@ -282,7 +519,10 @@
       "typescript",
       "javascript",
       "sql",
-      "languages"
+      "languages",
+      "skills",
+      "ansab",
+      "best"
     ],
     "source": "craft"
   },
@@ -295,7 +535,10 @@
       "fastapi",
       "react",
       "angular",
-      "frameworks"
+      "frameworks",
+      "skills",
+      "ansab",
+      "best"
     ],
     "source": "craft"
   },
@@ -312,7 +555,10 @@
       "elasticsearch",
       "redis",
       "openpyxl",
-      "ai"
+      "ai",
+      "skills",
+      "ansab",
+      "best"
     ],
     "source": "craft"
   },
@@ -328,7 +574,9 @@
       "pytest",
       "sentry",
       "datadog",
-      "ops"
+      "ops",
+      "skills",
+      "ansab"
     ],
     "source": "craft"
   },
@@ -340,7 +588,11 @@
       "craft",
       "fullstack",
       "ai",
-      "apis"
+      "apis",
+      "ansab",
+      "best",
+      "skills",
+      "approach"
     ],
     "source": "craft"
   }
