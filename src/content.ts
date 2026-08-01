@@ -6,6 +6,13 @@ import fiscalflowWorkspace from "./assets/work/fiscalflow/workspace.png";
 import fiscalflowSettings from "./assets/work/fiscalflow/settings.png";
 import fiscalflowAudit from "./assets/work/fiscalflow/audit-review.png";
 import fiscalflowDemo from "./assets/work/fiscalflow/demo.mp4";
+import xrefRequests from "./assets/work/xref/requests.png";
+import xrefCandidate from "./assets/work/xref/candidate.png";
+import xrefCandidateSurveys from "./assets/work/xref/candidate-surveys.png";
+import xrefCreateSend from "./assets/work/xref/create-send.png";
+import xrefMobileCollect from "./assets/work/xref/mobile-collect.png";
+import xrefReviewReport from "./assets/work/xref/review-report.png";
+import xrefInsights from "./assets/work/xref/insights-enps.png";
 
 export const profile = {
   name: "Ansab Rehman",
@@ -198,7 +205,11 @@ export type TenureEntry = {
   range: string;
   company: string;
   title: string;
+  summary?: string;
+  linesHeading?: string;
   lines: string[];
+  website?: string;
+  screenshots?: CaseScreenshot[];
 };
 
 export const tenure: TenureEntry[] = [
@@ -207,11 +218,52 @@ export const tenure: TenureEntry[] = [
     range: "Dec 2023 to Present",
     company: "Xref",
     title: "Full Stack Engineer",
+    website: "https://www.xref.com/",
+    summary:
+      "Xref is a SaaS HR technology company that helps organizations make better hiring decisions through automated reference checks, background screening, and recruitment workflow solutions. Its platform streamlines candidate verification, improves hiring efficiency, and helps employers reduce hiring risk.",
+    linesHeading: "What I shipped:",
     lines: [
       "Raised automated test coverage from 45% to 80% across Django backend and Angular frontend.",
       "Shipped AI-powered summaries in reference-check workflows and a knowledge-base chatbot for internal retrieval.",
       "Migrated referee-check workflows to the enterprise platform; added filtering, report downloads, and scheduled email delivery.",
       "Designed role-based access control inspired by AWS IAM for enterprise clients.",
+    ],
+    screenshots: [
+      {
+        src: xrefRequests,
+        alt: "Xref Requests page listing reference checks with status badges",
+        caption: "Requests — reference checks at a glance",
+      },
+      {
+        src: xrefCandidate,
+        alt: "Xref candidate profile for Catherine Horne with survey activity",
+        caption: "People — candidate profile and survey history",
+      },
+      {
+        src: xrefCandidateSurveys,
+        alt: "Xref candidate detail with expanded reference survey coverage",
+        caption: "Candidate detail — reference coverage and referees",
+      },
+      {
+        src: xrefCreateSend,
+        alt: "Xref how it works create and send reference request flow",
+        caption: "Create and send — recipients, survey, and settings",
+      },
+      {
+        src: xrefMobileCollect,
+        alt: "Xref mobile screens for adding references and answering questions",
+        caption: "Collect — candidate and referee mobile flow",
+      },
+      {
+        src: xrefReviewReport,
+        alt: "Xref reference report with coverage, sentiment, and turnaround metrics",
+        caption: "Review — reference report and sentiment",
+      },
+      {
+        src: xrefInsights,
+        alt: "Xref Insights dashboard showing Employee Net Promoter Score",
+        caption: "Insights — Employee Net Promoter Score",
+      },
     ],
   },
   {

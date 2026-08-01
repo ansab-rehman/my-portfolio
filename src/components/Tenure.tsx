@@ -3,6 +3,7 @@ import { useReveal } from "../hooks/useReveal";
 import xrefLogo from "../assets/xref-logo.png";
 import cheetayLogo from "../assets/cheetay-logo.png";
 import { emphasizeTech } from "../lib/emphasizeTech";
+import { CaseGallery } from "./CaseGallery";
 
 const logos: Record<string, string> = {
   Xref: xrefLogo,
@@ -54,11 +55,42 @@ export function Tenure() {
                 {entry.company}
                 <span className="changelog__role"> · {entry.title}</span>
               </h3>
+
+              {entry.summary ? (
+                <p className="changelog__summary">{emphasizeTech(entry.summary)}</p>
+              ) : null}
+
+              {entry.linesHeading ? (
+                <h4 className="changelog__impact-heading">{entry.linesHeading}</h4>
+              ) : null}
+
               <ul className="changelog__lines">
                 {entry.lines.map((line) => (
                   <li key={line}>{emphasizeTech(line)}</li>
                 ))}
               </ul>
+
+              {entry.website ? (
+                <p className="changelog__link-row">
+                  <a
+                    className="case__cta"
+                    href={entry.website}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Visit website
+                    <span className="case__github-arrow" aria-hidden="true">
+                      ↗
+                    </span>
+                  </a>
+                </p>
+              ) : null}
+
+              {entry.screenshots?.length ? (
+                <div className="changelog__gallery">
+                  <CaseGallery shots={entry.screenshots} />
+                </div>
+              ) : null}
             </div>
           </li>
         ))}
