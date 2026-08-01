@@ -87,17 +87,29 @@ export function Tenure() {
                 </p>
               ) : null}
 
-              {entry.video ? (
-                <div className="changelog__video">
-                  <CaseVideoPlayer video={entry.video} />
-                </div>
-              ) : null}
-
-              {entry.screenshots?.length ? (
+              {entry.video || entry.screenshots?.length ? (
                 <div
-                  className={`changelog__gallery${entry.galleryOrientation === "portrait" ? " changelog__gallery--portrait" : ""}`}
+                  className={`changelog__media${
+                    entry.video &&
+                    entry.screenshots?.length &&
+                    entry.galleryOrientation === "portrait"
+                      ? " changelog__media--split"
+                      : ""
+                  }`}
                 >
-                  <CaseGallery shots={entry.screenshots} />
+                  {entry.video ? (
+                    <div className="changelog__video">
+                      <CaseVideoPlayer video={entry.video} />
+                    </div>
+                  ) : null}
+
+                  {entry.screenshots?.length ? (
+                    <div
+                      className={`changelog__gallery${entry.galleryOrientation === "portrait" ? " changelog__gallery--portrait" : ""}`}
+                    >
+                      <CaseGallery shots={entry.screenshots} />
+                    </div>
+                  ) : null}
                 </div>
               ) : null}
             </div>

@@ -2278,6 +2278,40 @@ button.opening__nav-link {
   background: #07080a;
 }
 
+.changelog__media--split {
+  margin-top: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.changelog__media--split .changelog__video,
+.changelog__media--split .changelog__gallery {
+  margin-top: 0;
+}
+
+@media (min-width: 760px) {
+  .changelog__media--split {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.15rem;
+  }
+
+  .changelog__media--split .changelog__video,
+  .changelog__media--split .changelog__gallery--portrait {
+    flex: 0 1 17.5rem;
+    max-width: 17.5rem;
+  }
+
+  .changelog__media--split .case-video--portrait {
+    max-width: 100%;
+  }
+
+  .changelog__media--split .changelog__gallery--portrait .case-gallery {
+    max-width: 100%;
+  }
+}
+
 /* ── Craft ──────────────────────────────────────────────── */
 
 .craft__groups {
