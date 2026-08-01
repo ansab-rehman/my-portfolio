@@ -100,10 +100,13 @@ const SYNONYMS: Record<string, string[]> = {
   fastapi: ["python", "api"],
   rbac: ["iam", "access", "role"],
   iam: ["rbac", "access"],
-  ansab: ["rehman", "who", "about", "profile", "engineer", "fullstack"],
+  ansab: ["rehman", "who", "about", "profile", "engineer", "fullstack", "services"],
   rehman: ["ansab", "who", "about", "profile"],
   who: ["ansab", "about", "profile", "introduction", "identity"],
   about: ["ansab", "who", "profile"],
+  services: ["does", "do", "work", "offer", "provide", "ansab", "profile"],
+  service: ["services", "does", "provide", "offer"],
+  provide: ["services", "does", "offer", "work"],
   best: ["strengths", "strongest", "specialize", "skills", "expertise", "good"],
   strengths: ["best", "skills", "specialize"],
   skills: ["best", "craft", "stack", "specialize"],
@@ -231,7 +234,7 @@ export function retrievePortfolio(query: string): RetrieveResult {
       empty: true,
       matches: [],
       emptyAnswer:
-        "Ask something specific. Try who is Ansab, LAAM Analytics, MemogentAI, Elasticsearch, or what he is best at.",
+        "Ask something specific. Try MemogentAI, LAAM Analytics, Xref, or what services Ansab provides.",
     };
   }
 
@@ -247,7 +250,7 @@ export function retrievePortfolio(query: string): RetrieveResult {
       empty: true,
       matches: [],
       emptyAnswer:
-        "I don’t have that in this portfolio index. Try who is Ansab, LAAM Analytics, MemogentAI, Django, or RAG.",
+        "I don’t have that in this portfolio index. Try MemogentAI, LAAM Analytics, Xref, or what services Ansab provides.",
     };
   }
 
@@ -292,8 +295,8 @@ export function buildLlmPrompt(query: string, matches: AskMatch[]): {
 }
 
 export const ASK_SUGGESTIONS = [
-  "Who is Ansab?",
-  "What is Ansab best at?",
+  "What services does Ansab provide?",
+  "Tell me about MemogentAI",
   "Tell me about LAAM Analytics",
-  "What skills did LAAM Analytics use?",
+  "Tell me about Xref",
 ] as const;

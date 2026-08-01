@@ -1,14 +1,13 @@
-import { useEffect, useId, useState } from "react";
-import { createPortal } from "react-dom";
+import { useId, useState } from "react";
 import {
   selectedWork,
   type CaseArchitecture,
-  type CaseVideo,
   type WorkCase,
 } from "../content";
 import { useReveal } from "../hooks/useReveal";
 import { emphasizeTech } from "../lib/emphasizeTech";
 import { CaseGallery } from "./CaseGallery";
+import { CaseVideoPlayer } from "./CaseVideoPlayer";
 import { GitHubIcon } from "./SocialIcons";
 
 const FEATURED_COUNT = 2;
@@ -66,102 +65,6 @@ function ArchitecturePanel({
         })}
       </ol>
     </div>
-  );
-}
-
-function CaseVideoPlayer({ video }: { video: CaseVideo }) {
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const lightboxTitleId = useId();
-
-  useEffect(() => {
-    if (!lightboxOpen) return;
-
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setLightboxOpen(false);
-    };
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", onKey);
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", onKey);
-    };
-  }, [lightboxOpen]);
-
-  const lightbox =
-    lightboxOpen && typeof document !== "undefined"
-      ? createPortal(
-          <div
-            className="case-lightbox case-lightbox--video"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby={lightboxTitleId}
-            onClick={() => setLightboxOpen(false)}
-          >
-            <button
-              type="button"
-              className="case-lightbox__close"
-              aria-label="Close fullscreen video"
-              onClick={() => setLightboxOpen(false)}
-            >
-              ×
-            </button>
-            <figure
-              className="case-lightbox__figure"
-              onClick={(event) => event.stopPropagation()}
-            >
-              <video
-                className="case-lightbox__video"
-                src={video.src}
-                autoPlay
-                muted
-                loop
-                playsInline
-                controls
-                aria-label={video.caption}
-              />
-              <figcaption className="case-lightbox__caption" id={lightboxTitleId}>
-                {video.caption}
-              </figcaption>
-            </figure>
-          </div>,
-          document.body,
-        )
-      : null;
-
-  return (
-    <>
-      <figure className="case-video">
-        <button
-          type="button"
-          className="case-video__open"
-          aria-label={`View ${video.caption} fullscreen`}
-          onClick={() => setLightboxOpen(true)}
-        >
-          <div className="case-video__frame">
-            <video
-              className="case-video__el"
-              src={video.src}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              aria-hidden="true"
-              tabIndex={-1}
-            />
-            <div className="case-video__glow" aria-hidden="true" />
-            <span className="case-video__hint" aria-hidden="true">
-              Expand
-            </span>
-          </div>
-        </button>
-        <figcaption className="case-video__caption">{video.caption}</figcaption>
-      </figure>
-      {lightbox}
-    </>
   );
 }
 

@@ -1129,6 +1129,19 @@ button.opening__nav-link {
   color: var(--text-muted);
 }
 
+.case-video--portrait {
+  max-width: 17.5rem;
+}
+
+.case-video--portrait .case-video__frame {
+  aspect-ratio: 9 / 16;
+}
+
+.case-video--portrait .case-video__el {
+  object-fit: contain;
+  object-position: center;
+}
+
 .case-gallery {
   margin-top: var(--space-md);
   display: flex;
@@ -1427,6 +1440,11 @@ button.opening__nav-link {
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
   background: #0a0b0d;
+}
+
+.case-lightbox--portrait .case-lightbox__video {
+  max-width: min(92vw, 24rem);
+  max-height: calc(100vh - 6.5rem);
 }
 
 .case-lightbox__caption {
@@ -2225,6 +2243,12 @@ button.opening__nav-link {
   margin: 0.85rem 0 0;
 }
 
+.changelog__video {
+  --case-accent: var(--row-accent);
+  --case-soft: var(--row-soft);
+  margin-top: var(--space-md);
+}
+
 .changelog__gallery {
   --case-accent: var(--row-accent);
   --case-soft: var(--row-soft);
@@ -2234,6 +2258,24 @@ button.opening__nav-link {
 
 .changelog__gallery .case-gallery__viewport {
   aspect-ratio: 2 / 1;
+}
+
+.changelog__gallery--portrait {
+  max-width: 17.5rem;
+}
+
+.changelog__gallery--portrait .case-gallery {
+  max-width: 17.5rem;
+}
+
+.changelog__gallery--portrait .case-gallery__viewport {
+  aspect-ratio: 9 / 16;
+}
+
+.changelog__gallery--portrait .case-gallery__slide img {
+  object-fit: contain;
+  object-position: center;
+  background: #07080a;
 }
 
 /* ── Craft ──────────────────────────────────────────────── */

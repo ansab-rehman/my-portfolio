@@ -4,6 +4,7 @@ import xrefLogo from "../assets/xref-logo.png";
 import cheetayLogo from "../assets/cheetay-logo.png";
 import { emphasizeTech } from "../lib/emphasizeTech";
 import { CaseGallery } from "./CaseGallery";
+import { CaseVideoPlayer } from "./CaseVideoPlayer";
 
 const logos: Record<string, string> = {
   Xref: xrefLogo,
@@ -86,8 +87,16 @@ export function Tenure() {
                 </p>
               ) : null}
 
+              {entry.video ? (
+                <div className="changelog__video">
+                  <CaseVideoPlayer video={entry.video} />
+                </div>
+              ) : null}
+
               {entry.screenshots?.length ? (
-                <div className="changelog__gallery">
+                <div
+                  className={`changelog__gallery${entry.galleryOrientation === "portrait" ? " changelog__gallery--portrait" : ""}`}
+                >
                   <CaseGallery shots={entry.screenshots} />
                 </div>
               ) : null}

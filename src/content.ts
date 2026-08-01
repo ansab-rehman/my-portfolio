@@ -13,6 +13,15 @@ import xrefCreateSend from "./assets/work/xref/create-send.png";
 import xrefMobileCollect from "./assets/work/xref/mobile-collect.png";
 import xrefReviewReport from "./assets/work/xref/review-report.png";
 import xrefInsights from "./assets/work/xref/insights-enps.png";
+import cheetayDemo from "./assets/work/cheetay/demo.mp4";
+import cheetayServices from "./assets/work/cheetay/services-hero.png";
+import cheetayHome from "./assets/work/cheetay/home.png";
+import cheetayCart from "./assets/work/cheetay/cart.png";
+import cheetayCheckout from "./assets/work/cheetay/checkout.png";
+import cheetayProcessing from "./assets/work/cheetay/processing.png";
+import cheetayRewards from "./assets/work/cheetay/rewards.png";
+import cheetayMissions from "./assets/work/cheetay/missions.png";
+import cheetayShopWin from "./assets/work/cheetay/shop-win.png";
 
 export const profile = {
   name: "Ansab Rehman",
@@ -51,6 +60,8 @@ export type CaseScreenshot = {
 export type CaseVideo = {
   src: string;
   caption: string;
+  playbackRate?: number;
+  orientation?: "landscape" | "portrait";
 };
 
 export type WorkCase = {
@@ -209,7 +220,9 @@ export type TenureEntry = {
   linesHeading?: string;
   lines: string[];
   website?: string;
+  video?: CaseVideo;
   screenshots?: CaseScreenshot[];
+  galleryOrientation?: "landscape" | "portrait";
 };
 
 export const tenure: TenureEntry[] = [
@@ -271,11 +284,63 @@ export const tenure: TenureEntry[] = [
     range: "Mar 2021 to Dec 2023",
     company: "Cheetay Logistics",
     title: "Software Engineer",
+    summary:
+      "Cheetay is a Pakistan-based on-demand delivery and e-commerce platform that provides food delivery, grocery delivery, and logistics services. It connects customers with restaurants and retailers through a mobile app while enabling businesses to efficiently manage online orders and last-mile deliveries.",
+    linesHeading: "What I shipped:",
     lines: [
       "Delivered Elasticsearch indexing/search APIs, Redis caching, and Celery automation that cut latency in critical paths.",
       "Integrated Bank Alfalah payment gateway and production monitoring with Sentry and Elastic APM.",
       "Maintained backward-compatible APIs across logistics and ERP workflows.",
       "Built internal dashboards with Django templates and AJAX for operational management.",
+    ],
+    video: {
+      src: cheetayDemo,
+      caption: "Cheetay app walkthrough — grocery, cart, and checkout",
+      playbackRate: 1.3,
+      orientation: "portrait",
+    },
+    galleryOrientation: "portrait",
+    screenshots: [
+      {
+        src: cheetayServices,
+        alt: "Cheetay promotional graphic showing grocery, food, pharma, gifts, and donate services",
+        caption: "Services — grocery, food, pharma, gifts, donate",
+      },
+      {
+        src: cheetayHome,
+        alt: "Cheetay home screen with service categories and promotions",
+        caption: "Home — service categories and promos",
+      },
+      {
+        src: cheetayCart,
+        alt: "Cheetay grocery cart with cleaning products and checkout",
+        caption: "Cart — grocery basket and subtotal",
+      },
+      {
+        src: cheetayCheckout,
+        alt: "Cheetay checkout screen with fees, address, and slide to order",
+        caption: "Checkout — fees, address, and payment",
+      },
+      {
+        src: cheetayProcessing,
+        alt: "Cheetay order processing screen with estimated time",
+        caption: "Order processing — confirmation wait",
+      },
+      {
+        src: cheetayRewards,
+        alt: "Cheetay rewards and VIP treats dashboard",
+        caption: "Rewards — VIP treats and bazaar",
+      },
+      {
+        src: cheetayMissions,
+        alt: "Cheetay missions screen with Reckitt brand challenges",
+        caption: "Missions — gamified purchase challenges",
+      },
+      {
+        src: cheetayShopWin,
+        alt: "Cheetay Shop and Win promotional banner",
+        caption: "Campaign — Shop & Win",
+      },
     ],
   },
 ];

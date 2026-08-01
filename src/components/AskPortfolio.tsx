@@ -71,7 +71,7 @@ export function AskPortfolio() {
             type="search"
             name="q"
             autoComplete="off"
-            placeholder="Who is Ansab? What about LAAM Analytics?"
+            placeholder="Ask about MemogentAI, LAAM, Xref, or services…"
             value={query}
             disabled={loading}
             onChange={(e) => setQuery(e.target.value)}
