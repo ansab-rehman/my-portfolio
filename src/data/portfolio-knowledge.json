@@ -526,7 +526,9 @@
       "languages",
       "skills",
       "ansab",
-      "best"
+      "best",
+      "build",
+      "app"
     ],
     "source": "craft"
   },
@@ -542,7 +544,10 @@
       "frameworks",
       "skills",
       "ansab",
-      "best"
+      "best",
+      "build",
+      "app",
+      "web"
     ],
     "source": "craft"
   },
@@ -596,7 +601,118 @@
       "ansab",
       "best",
       "skills",
-      "approach"
+      "approach",
+      "build"
+    ],
+    "source": "craft"
+  },
+  {
+    "id": "craft-can-build-django",
+    "title": "Can you build in Django?",
+    "text": "Yes. I build production Django and Django REST Framework backends for web apps, APIs, admin tools, and enterprise workflows. I have shipped Django systems at Xref and Cheetay and in products like LAAM Analytics. If you need a Django app or API, email ansabrehman@hotmail.com and we can talk scope and next steps.",
+    "tags": [
+      "django",
+      "drf",
+      "python",
+      "backend",
+      "build",
+      "make",
+      "develop",
+      "create",
+      "app",
+      "application",
+      "api",
+      "web",
+      "can",
+      "hire",
+      "ansab",
+      "skills",
+      "frameworks"
+    ],
+    "source": "craft"
+  },
+  {
+    "id": "craft-can-build-python",
+    "title": "Can you build a Python app?",
+    "text": "Yes. Python is one of my primary languages. I build Python backends, APIs, automation, data pipelines, and AI services with Django, FastAPI, Celery, and related tools. For a Python project, email ansabrehman@hotmail.com with what you need and I will follow up.",
+    "tags": [
+      "python",
+      "django",
+      "fastapi",
+      "backend",
+      "build",
+      "make",
+      "develop",
+      "create",
+      "app",
+      "application",
+      "script",
+      "api",
+      "can",
+      "hire",
+      "ansab",
+      "skills",
+      "languages"
+    ],
+    "source": "craft"
+  },
+  {
+    "id": "craft-can-build-ai",
+    "title": "Can you build an AI app?",
+    "text": "Yes. I build AI-powered products: RAG systems, LangChain and LangGraph workflows, LLM integrations, OCR, NLP, chatbots, and human-in-the-loop agents. MemogentAI / FiscalFlow and AI features at Xref are examples. If you want an AI app or agent workflow, email ansabrehman@hotmail.com for details.",
+    "tags": [
+      "ai",
+      "llm",
+      "rag",
+      "langchain",
+      "langgraph",
+      "agents",
+      "nlp",
+      "ocr",
+      "chatbot",
+      "build",
+      "make",
+      "develop",
+      "create",
+      "app",
+      "application",
+      "can",
+      "hire",
+      "ansab",
+      "skills"
+    ],
+    "source": "craft"
+  },
+  {
+    "id": "craft-open-to-build",
+    "title": "Open to building with new technology",
+    "text": "Yes. I can help build web apps, APIs, dashboards, and AI features, including stacks that are not fully listed on this site. For scope, timeline, and next steps, email me at ansabrehman@hotmail.com and I will follow up with details.",
+    "tags": [
+      "build",
+      "make",
+      "develop",
+      "create",
+      "hire",
+      "available",
+      "new",
+      "technology",
+      "technologies",
+      "tech",
+      "stack",
+      "framework",
+      "library",
+      "platform",
+      "language",
+      "tool",
+      "project",
+      "app",
+      "application",
+      "product",
+      "software",
+      "can",
+      "contact",
+      "email",
+      "ansab"
     ],
     "source": "craft"
   }
