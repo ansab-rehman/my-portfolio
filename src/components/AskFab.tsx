@@ -15,9 +15,38 @@ import {
   saveAskChatHistory,
   type ChatMessage,
 } from "../lib/askChatHistory";
+import {
+  getSpeechRecognitionCtor,
+  speechRecognitionSupported,
+  type SpeechRecognitionLike,
+} from "../lib/speechRecognition";
 
 export const ASK_INPUT_ID = "ask-query";
 
+function MicIcon({ listening }: { listening: boolean }) {
+  return (
+    <svg
+      className="ask__mic-icon"
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 3a3.5 3.5 0 0 0-3.5 3.5v5a3.5 3.5 0 1 0 7 0v-5A3.5 3.5 0 0 0 12 3Z"
+        fill="currentColor"
+        opacity={listening ? 1 : 0.95}
+      />
+      <path
+        d="M7 11.5a5 5 0 0 0 10 0M12 16.5V20"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
 function newId() {
   return `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
 }
@@ -157,6 +186,8 @@ export function AskFab() {
   const threadRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const [open, setOpen] = useState(false);
+  const [panelShown, setPanelShown] = useState(false);
+  const [genie, setGenie] = useState<"in" | "out" | null>(null);
   const [draft, setDraft] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>(() =>
     typeof window === "undefined" ? [] : loadAskChatHistory(),
@@ -164,23 +195,119 @@ export function AskFab() {
   const [openPassagesId, setOpenPassagesId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [streamingId, setStreamingId] = useState<string | null>(null);
+  const [listening, setListening] = useState(false);
+  const [voiceSupported] = useState(() => speechRecognitionSupported());
   const streamCancelRef = useRef({ cancelled: false });
+  const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
+  const runAskRef = useRef<(raw: string) => Promise<void>>(async () => {});
+  const busyRef = useRef(false);
 
   const busy = loading || Boolean(streamingId);
+  busyRef.current = busy;
+  const reduceMotion = () =>
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const focusInput = () => {
     window.setTimeout(() => {
       inputRef.current?.focus({ preventScroll: true });
-    }, 80);
+    }, 120);
+  };
+
+  const openPanel = () => {
+    setOpen(true);
+    setPanelShown(true);
+    setGenie(reduceMotion() ? null : "in");
+    focusInput();
+  };
+
+  const closePanel = () => {
+    stopListening();
+    setOpen(false);
+    if (reduceMotion()) {
+      setPanelShown(false);
+      setGenie(null);
+      return;
+    }
+    setPanelShown(true);
+    setGenie("out");
   };
 
   const setOpenAndFocus = (next: boolean) => {
-    setOpen(next);
-    if (next) focusInput();
+    if (next) openPanel();
+    else closePanel();
+  };
+
+  const stopListening = () => {
+    const recognition = recognitionRef.current;
+    if (recognition) {
+      recognition.onresult = null;
+      recognition.onend = null;
+      recognition.onerror = null;
+      try {
+        recognition.stop();
+      } catch {
+        /* already stopped */
+      }
+      recognitionRef.current = null;
+    }
+    setListening(false);
+  };
+
+  const startListening = () => {
+    if (busyRef.current) return;
+    const Ctor = getSpeechRecognitionCtor();
+    if (!Ctor) return;
+
+    stopListening();
+    const recognition = new Ctor();
+    recognition.continuous = false;
+    recognition.interimResults = true;
+    recognition.lang = "en-US";
+    recognitionRef.current = recognition;
+
+    recognition.onstart = () => setListening(true);
+    recognition.onerror = () => {
+      setListening(false);
+      recognitionRef.current = null;
+    };
+    recognition.onend = () => {
+      setListening(false);
+      recognitionRef.current = null;
+    };
+    recognition.onresult = (event) => {
+      let interim = "";
+      let finalText = "";
+      for (let i = event.resultIndex; i < event.results.length; i += 1) {
+        const result = event.results[i];
+        const chunk = result[0]?.transcript ?? "";
+        if (result.isFinal) finalText += chunk;
+        else interim += chunk;
+      }
+
+      const spoken = (finalText || interim).trim();
+      if (spoken) setDraft(spoken);
+
+      if (finalText.trim() && !busyRef.current) {
+        void runAskRef.current(finalText.trim());
+      }
+    };
+
+    try {
+      recognition.start();
+    } catch {
+      setListening(false);
+      recognitionRef.current = null;
+    }
+  };
+
+  const toggleVoice = () => {
+    if (listening) stopListening();
+    else startListening();
   };
 
   useEffect(() => {
-    const openFromEvent = () => setOpenAndFocus(true);
+    const openFromEvent = () => openPanel();
     window.addEventListener(ASK_OPEN_EVENT, openFromEvent);
     return () => window.removeEventListener(ASK_OPEN_EVENT, openFromEvent);
   }, []);
@@ -216,13 +343,14 @@ export function AskFab() {
   useEffect(() => {
     return () => {
       streamCancelRef.current.cancelled = true;
+      stopListening();
     };
   }, []);
 
   useEffect(() => {
     if (!open) return;
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape") closePanel();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -231,6 +359,8 @@ export function AskFab() {
   const runAsk = async (raw: string) => {
     const trimmed = raw.trim();
     if (!trimmed || busy) return;
+
+    stopListening();
 
     const userMessage: ChatMessage = {
       id: newId(),
@@ -323,6 +453,7 @@ export function AskFab() {
       focusInput();
     }
   };
+  runAskRef.current = runAsk;
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -331,6 +462,7 @@ export function AskFab() {
 
   const clearHistory = () => {
     streamCancelRef.current.cancelled = true;
+    stopListening();
     clearAskChatHistory();
     setMessages([]);
     setOpenPassagesId(null);
@@ -342,14 +474,25 @@ export function AskFab() {
   const empty = messages.length === 0 && !busy;
 
   return (
-    <div className={`ask-messenger${open ? " is-open" : ""}`}>
-      {open ? (
+    <div className={`ask-messenger${panelShown ? " is-open" : ""}`}>
+      {panelShown ? (
         <section
-          className="ask-messenger__panel"
+          className={`ask-messenger__panel${
+            genie === "in" ? " is-genie-in" : ""
+          }${genie === "out" ? " is-genie-out" : ""}`}
           id={panelId}
           aria-label="Ask Ansab chat"
           role="dialog"
           aria-modal="false"
+          onAnimationEnd={(event) => {
+            if (event.target !== event.currentTarget) return;
+            if (genie === "out") {
+              setPanelShown(false);
+              setGenie(null);
+            } else if (genie === "in") {
+              setGenie(null);
+            }
+          }}
         >
           <header className="ask-messenger__header">
             <div className="ask-messenger__identity">
@@ -378,7 +521,7 @@ export function AskFab() {
               <button
                 type="button"
                 className="ask-messenger__icon-btn ask-messenger__icon-btn--close"
-                onClick={() => setOpen(false)}
+                onClick={closePanel}
                 aria-label="Close chat"
               >
                 ×
@@ -497,11 +640,30 @@ export function AskFab() {
                 type="text"
                 name="q"
                 autoComplete="off"
-                placeholder="Ask about Django, Python, AI apps, or services…"
+                placeholder={
+                  listening
+                    ? "Listening…"
+                    : "Ask about Django, Python, AI apps, or services…"
+                }
                 value={draft}
                 disabled={busy}
                 onChange={(e) => setDraft(e.target.value)}
               />
+              {voiceSupported ? (
+                <button
+                  type="button"
+                  className={`ask__mic${listening ? " is-listening" : ""}`}
+                  onClick={toggleVoice}
+                  disabled={busy}
+                  aria-pressed={listening}
+                  aria-label={
+                    listening ? "Stop voice input" : "Ask with your voice"
+                  }
+                  title={listening ? "Stop listening" : "Voice ask"}
+                >
+                  <MicIcon listening={listening} />
+                </button>
+              ) : null}
               <button
                 type="submit"
                 className="btn btn--primary ask__submit"
@@ -516,14 +678,14 @@ export function AskFab() {
 
       <button
         type="button"
-        className={`ask-fab${open ? " is-open" : ""}`}
+        className={`ask-fab${panelShown ? " is-open" : ""}${genie ? ` is-genie-${genie}` : ""}`}
         onClick={() => setOpenAndFocus(!open)}
         aria-label={open ? "Close Ask AI chat" : "Ask AI about my work"}
         aria-expanded={open}
-        aria-controls={open ? panelId : undefined}
+        aria-controls={panelShown ? panelId : undefined}
         title={open ? "Close chat" : "Ask AI"}
       >
-        {open ? (
+        {panelShown ? (
           <span className="ask-fab__label" aria-hidden="true">
             ×
           </span>

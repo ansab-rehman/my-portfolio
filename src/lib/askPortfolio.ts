@@ -117,6 +117,8 @@ const SYNONYMS: Record<string, string[]> = {
   provide: ["services", "does", "offer", "work"],
   hire: ["contact", "email", "build", "available"],
   contact: ["email", "hire", "linkedin"],
+  testimonials: ["recommendations", "linkedin", "xref", "review"],
+  recommendations: ["testimonials", "linkedin", "xref"],
   email: ["contact", "hire"],
   best: ["strengths", "strongest", "specialize", "skills", "expertise", "good"],
   strengths: ["best", "skills", "specialize"],

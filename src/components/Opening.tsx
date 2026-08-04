@@ -117,10 +117,10 @@ export function Opening() {
           <a className="opening__nav-link" href="#craft">
             Skills
           </a>
-          <DownloadsMenu />
-          <a className="opening__nav-link" href="#ask">
-            Ask
+          <a className="opening__nav-link" href="#testimonials">
+            Testimonials
           </a>
+          <DownloadsMenu />
           <a className="opening__nav-link" href="#contact">
             Contact
           </a>

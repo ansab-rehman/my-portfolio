@@ -2,6 +2,7 @@ import { Opening } from "./components/Opening";
 import { SelectedWork } from "./components/SelectedWork";
 import { Tenure } from "./components/Tenure";
 import { Craft } from "./components/Craft";
+import { Testimonials } from "./components/Testimonials";
 import { AskPortfolio } from "./components/AskPortfolio";
 import { AskFab } from "./components/AskFab";
 import { Close } from "./components/Close";
@@ -15,6 +16,7 @@ export default function App() {
         <SelectedWork />
         <Tenure />
         <Craft />
+        <Testimonials />
         <AskPortfolio />
       </main>
       <Close />

@@ -25,13 +25,37 @@ function forceMutedAutoplay(
 
 export function CaseVideoPlayer({ video }: { video: CaseVideo }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [srcReady, setSrcReady] = useState(false);
   const lightboxTitleId = useId();
   const previewRef = useRef<HTMLVideoElement>(null);
   const lightboxRef = useRef<HTMLVideoElement>(null);
+  const frameRef = useRef<HTMLDivElement>(null);
   const rate = video.playbackRate ?? 1;
   const portrait = video.orientation === "portrait";
+  const previewSrc = srcReady ? video.src : undefined;
 
   useEffect(() => {
+    const frame = frameRef.current;
+    if (!frame) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setSrcReady(true);
+            observer.disconnect();
+            break;
+          }
+        }
+      },
+      { rootMargin: "200px 0px", threshold: 0.01 },
+    );
+    observer.observe(frame);
+    return () => observer.disconnect();
+  }, [video.src]);
+
+  useEffect(() => {
+    if (!srcReady) return;
     const el = previewRef.current;
     if (!el) return;
 
@@ -57,7 +81,7 @@ export function CaseVideoPlayer({ video }: { video: CaseVideo }) {
       document.removeEventListener("visibilitychange", onVisibility);
       observer.disconnect();
     };
-  }, [video.src, rate]);
+  }, [video.src, rate, srcReady]);
 
   useEffect(() => {
     if (!lightboxOpen) return;
@@ -109,12 +133,13 @@ export function CaseVideoPlayer({ video }: { video: CaseVideo }) {
                 ref={lightboxRef}
                 className="case-lightbox__video"
                 src={video.src}
+                poster={video.poster}
                 autoPlay
                 muted
                 loop
                 playsInline
                 controls
-                preload="auto"
+                preload="metadata"
                 aria-label={video.caption}
               />
               <figcaption className="case-lightbox__caption" id={lightboxTitleId}>
@@ -134,20 +159,22 @@ export function CaseVideoPlayer({ video }: { video: CaseVideo }) {
           className="case-video__open"
           aria-label={`View ${video.caption} fullscreen`}
           onClick={() => {
+            setSrcReady(true);
             forceMutedAutoplay(previewRef.current, rate);
             setLightboxOpen(true);
           }}
         >
-          <div className="case-video__frame">
+          <div className="case-video__frame" ref={frameRef}>
             <video
               ref={previewRef}
               className="case-video__el"
-              src={video.src}
+              src={previewSrc}
+              poster={video.poster}
               autoPlay
               muted
               loop
               playsInline
-              preload="auto"
+              preload="metadata"
               aria-hidden="true"
               tabIndex={-1}
             />

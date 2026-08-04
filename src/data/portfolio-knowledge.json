@@ -147,7 +147,7 @@
   {
     "id": "profile-linkedin",
     "title": "LinkedIn",
-    "text": "Find me on LinkedIn at linkedin.com/in/ansabrehman/ for professional background, experience at Synora Digitals, Xref and Cheetay, and collaboration.",
+    "text": "Find me on LinkedIn at linkedin.com/in/ansabrehman/ for professional background, experience at Synora Digitals, Xref and Cheetay, and collaboration. LinkedIn recommendations from Xref colleagues are also listed there.",
     "tags": [
       "ansab",
       "linkedin",
@@ -155,7 +155,31 @@
       "network",
       "profile",
       "hire",
-      "reach"
+      "reach",
+      "recommendations",
+      "testimonials"
+    ],
+    "source": "profile"
+  },
+  {
+    "id": "profile-testimonials",
+    "title": "LinkedIn recommendations",
+    "text": "Colleagues at Xref have recommended me on LinkedIn, including Imran Shahid (Director of Engineering), Sharon Blesson (CTO), David Lloyd (Principal Software Engineer), Maricar Maandal (Project Manager), and Dean Pillon (Project Manager). They highlight full-stack delivery with Django, Angular, Python, and JavaScript, plus reliability, collaboration, and quality. Full recommendations: linkedin.com/in/ansabrehman/details/recommendations/",
+    "tags": [
+      "testimonials",
+      "recommendations",
+      "recommendation",
+      "linkedin",
+      "xref",
+      "imran",
+      "sharon",
+      "david",
+      "maricar",
+      "dean",
+      "review",
+      "feedback",
+      "ansab",
+      "hire"
     ],
     "source": "profile"
   },

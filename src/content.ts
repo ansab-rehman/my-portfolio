@@ -1,11 +1,12 @@
-import laamDashboard from "./assets/work/laam-dashboard/dashboard.png";
-import laamFiltered from "./assets/work/laam-dashboard/filtered.png";
-import laamInsights from "./assets/work/laam-dashboard/product-insights.png";
-import fiscalflowHome from "./assets/work/fiscalflow/home.png";
-import fiscalflowWorkspace from "./assets/work/fiscalflow/workspace.png";
-import fiscalflowSettings from "./assets/work/fiscalflow/settings.png";
-import fiscalflowAudit from "./assets/work/fiscalflow/audit-review.png";
+import laamDashboard from "./assets/work/laam-dashboard/dashboard.webp";
+import laamFiltered from "./assets/work/laam-dashboard/filtered.webp";
+import laamInsights from "./assets/work/laam-dashboard/product-insights.webp";
+import fiscalflowHome from "./assets/work/fiscalflow/home.webp";
+import fiscalflowWorkspace from "./assets/work/fiscalflow/workspace.webp";
+import fiscalflowSettings from "./assets/work/fiscalflow/settings.webp";
+import fiscalflowAudit from "./assets/work/fiscalflow/audit-review.webp";
 import fiscalflowDemo from "./assets/work/fiscalflow/demo.mp4";
+import fiscalflowDemoPoster from "./assets/work/fiscalflow/demo-poster.jpg";
 import xrefRequests from "./assets/work/xref/requests.png";
 import xrefCandidate from "./assets/work/xref/candidate.png";
 import xrefCandidateSurveys from "./assets/work/xref/candidate-surveys.png";
@@ -14,7 +15,8 @@ import xrefMobileCollect from "./assets/work/xref/mobile-collect.png";
 import xrefReviewReport from "./assets/work/xref/review-report.png";
 import xrefInsights from "./assets/work/xref/insights-enps.png";
 import cheetayDemo from "./assets/work/cheetay/demo.mp4";
-import cheetayServices from "./assets/work/cheetay/services-hero.png";
+import cheetayDemoPoster from "./assets/work/cheetay/demo-poster.jpg";
+import cheetayServices from "./assets/work/cheetay/services-hero.webp";
 import cheetayHome from "./assets/work/cheetay/home.png";
 import cheetayCart from "./assets/work/cheetay/cart.png";
 import cheetayCheckout from "./assets/work/cheetay/checkout.png";
@@ -29,6 +31,9 @@ export const profile = {
   summary:
     "I'm a Full Stack Engineer with 5+ years of experience building scalable web applications and AI-powered solutions. I specialize in Python, Django, FastAPI, React, and Angular, with hands-on experience in RAG, LangChain, LangGraph, LLM integrations, OCR, NLP, and AI agent workflows. From enterprise platforms and payment integrations to distributed systems and AI-powered applications, I enjoy solving complex engineering problems and building products that are reliable, scalable, and genuinely useful.",
   email: "ansabrehman@hotmail.com",
+  /** Swap for a Calendly (or similar) URL when you have one. */
+  bookCall:
+    "mailto:ansabrehman@hotmail.com?subject=Book%20a%20call&body=Hi%20Ansab%2C%0A%0AI%27d%20like%20to%20book%20a%20call.%0A",
   linkedin: "https://linkedin.com/in/ansabrehman/",
   github: "https://github.com/ansab-rehman",
   location: "Lahore, Pakistan",
@@ -60,6 +65,7 @@ export type CaseScreenshot = {
 export type CaseVideo = {
   src: string;
   caption: string;
+  poster?: string;
   playbackRate?: number;
   orientation?: "landscape" | "portrait";
 };
@@ -91,6 +97,7 @@ export const selectedWork: WorkCase[] = [
     href: "https://github.com/FiscalFlowHQ/fiscalflow-ui",
     video: {
       src: fiscalflowDemo,
+      poster: fiscalflowDemoPoster,
       caption: "Desktop walkthrough — FiscalFlow FDD workspace",
     },
     screenshots: [
@@ -312,6 +319,7 @@ export const tenure: TenureEntry[] = [
     ],
     video: {
       src: cheetayDemo,
+      poster: cheetayDemoPoster,
       caption: "Cheetay app walkthrough — grocery, cart, and checkout",
       playbackRate: 1.3,
       orientation: "portrait",
@@ -384,3 +392,69 @@ export const craft = {
     },
   ],
 } as const;
+
+export type Testimonial = {
+  id: string;
+  name: string;
+  title: string;
+  quote: string;
+  profileUrl: string;
+  date: string;
+  gender: "male" | "female";
+};
+
+export const testimonialsHref =
+  "https://www.linkedin.com/in/ansabrehman/details/recommendations/";
+
+export const testimonials: Testimonial[] = [
+  {
+    id: "imran-shahid",
+    name: "Imran Shahid",
+    title: "Director of Engineering at Xref",
+    date: "April 2026",
+    profileUrl: "https://www.linkedin.com/in/ishahid/",
+    gender: "male",
+    quote:
+      "Ansab is an exceptional Full Stack Engineer who brings deep expertise in Python (Django) and Angular to every project. He communicates with clarity, maintains full transparency, and is a reliable, detail-oriented collaborator — a significant asset to any high-performing engineering team.",
+  },
+  {
+    id: "sharon-blesson",
+    name: "Sharon Blesson",
+    title: "Chief Technical Officer @ Xref (ASX:XF1)",
+    date: "March 2026",
+    profileUrl: "https://www.linkedin.com/in/sharon-b-43585423/",
+    gender: "female",
+    quote:
+      "He consistently delivered high-quality work across multiple projects, with strong skills in Angular, JavaScript, and Python, plus solid backend and DevOps practices. I’d strongly recommend him for any full-stack engineering role.",
+  },
+  {
+    id: "david-lloyd",
+    name: "David Lloyd",
+    title: "Principal Software Engineer at Xref",
+    date: "March 2026",
+    profileUrl: "https://www.linkedin.com/in/david-lloyd-3a6b21b9/",
+    gender: "male",
+    quote:
+      "I worked with Ansab at Xref for three years and saw him grow into one of the key developers on our team. He is a very capable full-stack developer and a hard worker who cares about shipping quality code.",
+  },
+  {
+    id: "maricar-maandal",
+    name: "Maricar Maandal",
+    title: "Project Manager",
+    date: "March 2026",
+    profileUrl: "https://www.linkedin.com/in/maricar-maandal-b989709a/",
+    gender: "female",
+    quote:
+      "Ansab consistently delivered high-quality work as a full-stack engineer across multiple projects. His proactive mindset and commitment made him a valued member of the team.",
+  },
+  {
+    id: "dean-pillon",
+    name: "Dean Pillon",
+    title: "Project Manager",
+    date: "December 2024",
+    profileUrl: "https://www.linkedin.com/in/dean-pillon-009762195/",
+    gender: "male",
+    quote:
+      "Ansab is an exceptional developer with a professional approach and a strong commitment to quality. His problem-solving skills and dedication ensure outstanding results.",
+  },
+];
