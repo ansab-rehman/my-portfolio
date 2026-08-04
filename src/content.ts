@@ -260,10 +260,10 @@ export const tenure: TenureEntry[] = [
       "Xref is a SaaS HR technology company that helps organizations make better hiring decisions through automated reference checks, background screening, and recruitment workflow solutions. Its platform streamlines candidate verification, improves hiring efficiency, and helps employers reduce hiring risk.",
     linesHeading: "What I shipped:",
     lines: [
-      "Raised automated test coverage from 45% to 80% across Django backend and Angular frontend.",
-      "Shipped AI-powered summaries in reference-check workflows and a knowledge-base chatbot for internal retrieval.",
-      "Migrated referee-check workflows to the enterprise platform; added filtering, report downloads, and scheduled email delivery.",
-      "Designed role-based access control inspired by AWS IAM for enterprise clients.",
+      "Led feature delivery and critical issue resolution across enterprise and recruiter platforms, improving product stability and enterprise workflow support.",
+      "Increased automated test coverage from 45% to 80% across the Django backend and Angular frontend.",
+      "Built AI-powered summaries in reference-check workflows to improve readability and cut manual review effort.",
+      "Integrated a knowledge-base chatbot for internal information retrieval and user assistance.",
     ],
     screenshots: [
       {

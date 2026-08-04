@@ -457,7 +457,7 @@
   {
     "id": "tenure-xref",
     "title": "Xref: Full Stack Engineer",
-    "text": "At Xref (Dec 2023 to Present): raised automated test coverage from 45% to 80% across Django and Angular; shipped AI-powered summaries in reference-check workflows and a knowledge-base chatbot for internal retrieval; migrated referee-check workflows to the enterprise platform; designed IAM-style role-based access control.",
+    "text": "At Xref (Dec 2023 to Present): led feature delivery and critical issue resolution across enterprise and recruiter platforms; raised automated test coverage from 45% to 80% across Django and Angular; built AI-powered summaries in reference-check workflows; integrated a knowledge-base chatbot for internal retrieval and user assistance.",
     "tags": [
       "xref",
       "django",
@@ -466,8 +466,7 @@
       "coverage",
       "ai",
       "chatbot",
-      "rbac",
-      "iam",
+      "enterprise",
       "ansab",
       "experience",
       "job",
@@ -478,7 +477,7 @@
   {
     "id": "tenure-xref-coverage",
     "title": "Test coverage at Xref",
-    "text": "Raised automated test coverage from 45% to 80% across Django backend and Angular frontend at Xref.",
+    "text": "Increased automated test coverage from 45% to 80% across the Django backend and Angular frontend at Xref.",
     "tags": [
       "xref",
       "testing",
@@ -492,7 +491,7 @@
   {
     "id": "tenure-xref-ai",
     "title": "AI at Xref",
-    "text": "Shipped AI-powered summaries in reference-check workflows and a knowledge-base chatbot for internal retrieval at Xref.",
+    "text": "At Xref I built AI-powered summaries in reference-check workflows to improve readability and cut manual review effort, and integrated a knowledge-base chatbot for internal information retrieval and user assistance.",
     "tags": [
       "xref",
       "ai",
@@ -505,16 +504,16 @@
     "source": "tenure"
   },
   {
-    "id": "tenure-xref-rbac",
-    "title": "RBAC at Xref",
-    "text": "Designed role-based access control inspired by AWS IAM for enterprise clients at Xref.",
+    "id": "tenure-xref-delivery",
+    "title": "Feature delivery at Xref",
+    "text": "At Xref I led feature delivery and critical issue resolution across enterprise and recruiter platforms, improving product stability and enterprise workflow support.",
     "tags": [
       "xref",
-      "rbac",
-      "iam",
-      "aws",
-      "security",
-      "enterprise"
+      "enterprise",
+      "delivery",
+      "stability",
+      "fullstack",
+      "leadership"
     ],
     "source": "tenure"
   },
