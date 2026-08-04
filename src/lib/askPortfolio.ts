@@ -132,6 +132,12 @@ const SYNONYMS: Record<string, string[]> = {
   recharts: ["charts", "react", "laam", "analytics"],
   tanstack: ["query", "react", "laam"],
   docker: ["compose", "ops", "laam"],
+  synora: ["synoradigitals", "cofounder", "founder", "automation", "agents", "workflows"],
+  synoradigitals: ["synora", "cofounder", "founder", "automation", "agents"],
+  cofounder: ["synora", "synoradigitals", "founder", "partner"],
+  "co-founder": ["synora", "synoradigitals", "cofounder", "founder"],
+  founder: ["synora", "synoradigitals", "cofounder"],
+  partner: ["synora", "synoradigitals", "cofounder"],
 };
 
 const SOURCE_HREF: Record<KnowledgeSource, string> = {

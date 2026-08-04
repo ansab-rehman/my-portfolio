@@ -147,7 +147,7 @@
   {
     "id": "profile-linkedin",
     "title": "LinkedIn",
-    "text": "Find me on LinkedIn at linkedin.com/in/ansabrehman/ for professional background, experience at Xref and Cheetay, and collaboration.",
+    "text": "Find me on LinkedIn at linkedin.com/in/ansabrehman/ for professional background, experience at Synora Digitals, Xref and Cheetay, and collaboration.",
     "tags": [
       "ansab",
       "linkedin",
@@ -400,6 +400,35 @@
       "product"
     ],
     "source": "work"
+  },
+  {
+    "id": "tenure-synora",
+    "title": "Synora Digitals: Co-Founder",
+    "text": "At Synora Digitals (2026 — Present) I am Co-Founder. Synora Digitals builds AI automation pipelines, custom internal tooling, and scalable workflow integrations that eliminate operational overhead for growing businesses. I co-lead system architecture, backend infrastructure, and API development; design autonomous workflow agents and integration pipelines; and translate business requirements into production-grade software on fast turnaround cycles. Website: synoradigitals.com.",
+    "tags": [
+      "synora",
+      "synoradigitals",
+      "cofounder",
+      "co-founder",
+      "founder",
+      "partner",
+      "ai",
+      "automation",
+      "automations",
+      "agents",
+      "workflows",
+      "architecture",
+      "backend",
+      "api",
+      "tooling",
+      "integrations",
+      "ansab",
+      "experience",
+      "job",
+      "work",
+      "present"
+    ],
+    "source": "tenure"
   },
   {
     "id": "tenure-xref",

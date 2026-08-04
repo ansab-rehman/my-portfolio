@@ -220,12 +220,29 @@ export type TenureEntry = {
   linesHeading?: string;
   lines: string[];
   website?: string;
+  /** Optional Visit website button color (hex). */
+  websiteAccent?: string;
   video?: CaseVideo;
   screenshots?: CaseScreenshot[];
   galleryOrientation?: "landscape" | "portrait";
 };
 
 export const tenure: TenureEntry[] = [
+  {
+    id: "synora-tenure",
+    range: "2026 — Present",
+    company: "Synora Digitals",
+    title: "Co-Founder",
+    website: "https://synoradigitals.com/",
+    summary:
+      "Synora Digitals builds AI automation pipelines, custom internal tooling, and scalable workflow integrations that eliminate operational overhead for growing businesses.",
+    linesHeading: "What I lead & build:",
+    lines: [
+      "System Architecture: Co-leading technical strategy, backend infrastructure, and API development for client builds.",
+      "AI & Automations: Designing autonomous workflow agents and integration pipelines that automate complex operations.",
+      "Client Delivery: Translating business requirements into production-grade software shipped on fast turnaround cycles.",
+    ],
+  },
   {
     id: "xref-tenure",
     range: "Dec 2023 to Present",

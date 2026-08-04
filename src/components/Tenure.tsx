@@ -1,12 +1,15 @@
+import type { CSSProperties } from "react";
 import { tenure } from "../content";
 import { useReveal } from "../hooks/useReveal";
 import xrefLogo from "../assets/xref-logo.png";
 import cheetayLogo from "../assets/cheetay-logo.png";
+import synoraLogo from "../assets/synora-digitals-logo.svg";
 import { emphasizeTech } from "../lib/emphasizeTech";
 import { CaseGallery } from "./CaseGallery";
 import { CaseVideoPlayer } from "./CaseVideoPlayer";
 
 const logos: Record<string, string> = {
+  "Synora Digitals": synoraLogo,
   Xref: xrefLogo,
   "Cheetay Logistics": cheetayLogo,
 };
@@ -74,10 +77,17 @@ export function Tenure() {
               {entry.website ? (
                 <p className="changelog__link-row">
                   <a
-                    className="case__cta"
+                    className={`case__cta${entry.websiteAccent ? " case__cta--branded" : ""}`}
                     href={entry.website}
                     target="_blank"
                     rel="noreferrer"
+                    style={
+                      entry.websiteAccent
+                        ? ({
+                            "--cta-brand": entry.websiteAccent,
+                          } as CSSProperties)
+                        : undefined
+                    }
                   >
                     Visit website
                     <span className="case__github-arrow" aria-hidden="true">

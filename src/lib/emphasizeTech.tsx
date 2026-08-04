@@ -1,5 +1,12 @@
 import type { ReactNode } from "react";
 
+/** Lead-in labels bolded with their trailing colon (e.g. tenure impact lines). */
+const LEAD_LABELS = [
+  "System Architecture",
+  "AI & Automations",
+  "Client Delivery",
+].sort((a, b) => b.length - a.length);
+
 /** Longer phrases first so "LangGraph" wins over shorter tokens. */
 const TECH_TERMS = [
   "human-in-the-loop",
@@ -54,8 +61,6 @@ const TECH_TERMS = [
   "CMS",
   "FDD",
   "HITL",
-  "APIs",
-  "API",
   "HTML5",
   "CSS",
   "JS",
@@ -63,24 +68,38 @@ const TECH_TERMS = [
   "Git",
 ].sort((a, b) => b.length - a.length);
 
-const ESCAPED = TECH_TERMS.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|");
+const LABEL_ESCAPED = LEAD_LABELS.map((t) =>
+  t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
+).join("|");
+
+const TECH_ESCAPED = TECH_TERMS.map((t) =>
+  t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
+).join("|");
 
 /**
- * Wrap known tech / language terms in <strong class="tech-term">.
+ * Wrap known lead labels and tech / language terms in <strong>.
  */
 export function emphasizeTech(text: string): ReactNode[] {
   const nodes: ReactNode[] = [];
   let last = 0;
-  const re = new RegExp(`(?<![A-Za-z0-9])(${ESCAPED})(?![A-Za-z0-9])`, "gi");
+  const re = new RegExp(
+    `(?<![A-Za-z0-9])(?:(${LABEL_ESCAPED}):|(${TECH_ESCAPED}))(?![A-Za-z0-9])`,
+    "gi",
+  );
   let match: RegExpExecArray | null;
 
   while ((match = re.exec(text)) !== null) {
     if (match.index > last) {
       nodes.push(text.slice(last, match.index));
     }
+    const isLabel = Boolean(match[1]);
+    const value = isLabel ? `${match[1]}:` : match[2];
     nodes.push(
-      <strong key={`${match.index}-${match[0]}`} className="tech-term">
-        {match[0]}
+      <strong
+        key={`${match.index}-${value}`}
+        className={isLabel ? "lead-label" : "tech-term"}
+      >
+        {value}
       </strong>,
     );
     last = match.index + match[0].length;
